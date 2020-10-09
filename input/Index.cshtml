@@ -1,0 +1,32 @@
+﻿@using Kentico.Kontent.Statiq.Lumen.Models
+@using Kentico.Kontent.Statiq.Lumen.Pipelines
+@model PagedContent<Article>
+@{
+    ViewData["Title"] = "Blog - Lumen";
+}
+
+
+<div class="Page-module--page__body--Ic6i6">
+    <div>
+        @foreach (Article article in Model.Items)
+        {
+            <div class="Feed-module--feed__item--2D5rE">
+                <div><time class="Feed-module--feed__item-meta-time--3t1fg" datetime="August 19, 2017">@Html.DisplayFor(model => article.Date)</time><span class="Feed-module--feed__item-meta-divider--N-Q0A"></span><span><a class="Feed-module--feed__item-meta-category-link--23f8F" href="/category/typography/">@Html.Raw(string.Join(", ", article.TagObjects.Select(t => t.Title)))</a></span></div>
+                <h2 class="Feed-module--feed__item-title--3nigr"><a class="Feed-module--feed__item-title-link--iFMRs" href="@article.Slug">@article.Title</a></h2>
+                <p class="Feed-module--feed__item-description--1uO8e">@article.Description</p>
+                <a class="Feed-module--feed__item-readmore--1u6bI" href="/posts/@article.Slug">Read</a>
+            </div>
+        }
+    </div>
+
+    @if (Model.TotalPages > 1)
+    {
+        var currentPageIndex = Model.Index;
+        var lastPage = Model.TotalPages;
+        <div class="Pagination-module--pagination--2H3nO">
+            <div class="Pagination-module--pagination__prev--bet5s"><a aria-current="page" rel="prev" class="Pagination-module--pagination__prev-link--1Nzs6 Pagination-module--pagination__prev-link--disable--Yklx9" href="@Model.Previous?.Url">← PREV</a></div>
+            <div class="Pagination-module--pagination__next--3hFiN"><a rel="next" class="Pagination-module--pagination__next-link--3FUtA" href="@Model.Next?.Url">→ NEXT</a></div>
+        </div>
+    }
+
+</div>

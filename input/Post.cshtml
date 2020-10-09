@@ -1,0 +1,47 @@
+﻿@using Kentico.Kontent.Statiq.Lumen.Models
+@model Article
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+@if (Model != null)
+{
+    <div>
+        <a class="Post-module--post__home-button--16Kl0" href="/">All Articles</a>
+        <div>
+            <div class="Content-module--content--3p512">
+                <h1 class="Content-module--content__title--2BDW9">@Html.DisplayFor(model => model.Title)</h1>
+                <div class="Content-module--content__body--2TrQ-">
+                    @Html.DisplayFor(model => model.Content)
+
+                </div>
+            </div>
+        </div>
+        <div class="Post-module--post__footer--3WzWU">
+            <div>
+                <p class="Meta-module--meta__date--29eD7">@Html.DisplayFor(model => model.Date) in @Html.Raw(string.Join(", ", Model.TagObjects.Select(t => t.Title)))</p>
+            </div>
+            <div class="Tags-module--tags--1L_ct">
+                <ul class="Tags-module--tags__list--91FqN">
+                    <li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/design/">Design</a></li>
+                    <li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/typography/">Typography</a></li>
+                    <li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/web-development/">Web Development</a></li>
+                </ul>
+            </div>
+            <div class="Author-module--author--2Yefr">
+                <p>Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.<a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/#" rel="noopener noreferrer" target="_blank"><strong>John Doe</strong> on Twitter</a></p>
+            </div>
+        </div>
+        <div class="Post-module--post__comments--25y6I"></div>
+    </div>
+
+}
+
+@section Head {
+    @{ await Html.RenderPartialAsync("_SocialSharingMetadata", new SocialSharingMetadata(null, Model)); }
+    <link href="~/js/libs/prism.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script src="~/js/libs/prism.js"></script>
+}
