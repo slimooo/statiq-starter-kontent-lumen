@@ -1,0 +1,9 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+.meta {
+  &__date {
+    font-style: italic;
+  }
+
+}

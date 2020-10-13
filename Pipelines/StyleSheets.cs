@@ -7,12 +7,12 @@ namespace Generator.Pipelines
     public class StyleSheets : Pipeline
     {
         public StyleSheets()
-        {            
-            InputModules = new ModuleList { 
-                new ReadFiles(pattern: "assets/scss/init.scss"),
+        {
+            InputModules = new ModuleList {
+                new ReadFiles(pattern: "assets/scss/**/{!_,}*.scss"),
                 new CompileSass()
                     .WithCompactOutputStyle(),
-                new SetDestination( new NormalizedPath("site.css") ),
+                new SetDestination(".css"),
                 new WriteFiles()
             };
         }

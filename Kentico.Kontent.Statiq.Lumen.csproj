@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <Folder Include="input\assets\fonts\" />
+    <Folder Include="src\" />
     <Folder Include="static\" />
   </ItemGroup>
 

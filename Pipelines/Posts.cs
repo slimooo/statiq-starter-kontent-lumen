@@ -17,7 +17,7 @@ namespace Generator.Pipelines
                 new Kontent<Article>(deliveryClient)
                     .OrderBy(Article.DateCodename, SortOrder.Descending)
                     .WithQuery( new DepthParameter(1), new IncludeTotalCountParameter() ),
-                new SetDestination(Config.FromDocument((doc, ctx)  => new NormalizedPath( doc.AsKontent<Article>().Slug ))),
+                new SetDestination(Config.FromDocument((doc, ctx)  => new NormalizedPath($"{doc.AsKontent<Article>().Slug}" ))),
             };
 
             ProcessModules = new ModuleList {

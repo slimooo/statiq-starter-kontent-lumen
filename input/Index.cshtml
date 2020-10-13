@@ -5,28 +5,44 @@
     ViewData["Title"] = "Blog - Lumen";
 }
 
+<Sidebar />
 
-<div class="Page-module--page__body--Ic6i6">
-    <div>
-        @foreach (Article article in Model.Items)
-        {
-            <div class="Feed-module--feed__item--2D5rE">
-                <div><time class="Feed-module--feed__item-meta-time--3t1fg" datetime="August 19, 2017">@Html.DisplayFor(model => article.Date)</time><span class="Feed-module--feed__item-meta-divider--N-Q0A"></span><span><a class="Feed-module--feed__item-meta-category-link--23f8F" href="/category/typography/">@Html.Raw(string.Join(", ", article.TagObjects.Select(t => t.Title)))</a></span></div>
-                <h2 class="Feed-module--feed__item-title--3nigr"><a class="Feed-module--feed__item-title-link--iFMRs" href="@article.Slug">@article.Title</a></h2>
-                <p class="Feed-module--feed__item-description--1uO8e">@article.Description</p>
-                <a class="Feed-module--feed__item-readmore--1u6bI" href="/posts/@article.Slug">Read</a>
+<div class="page">
+    <div class="page__inner">
+        <div class="page__body">
+            <div>
+                @foreach (Article article in Model.Items)
+                {
+                    <div class="feed__item">
+                        <div><time class="feed__item-meta-time" datetime="August 19, 2017">@Html.DisplayFor(model => article.Date)</time><span class="feed__item-meta-divider"></span><span><a class="feed__item-meta-category-link" href="/category/typography/">@Html.Raw(string.Join(", ", article.TagObjects.Select(t => t.Title)))</a></span></div>
+                        <h2 class="feed__item-title"><a class="feed__item-title-link" href="@article.Slug">@article.Title</a></h2>
+                        <p class="feed__item-description">@article.Description</p>
+                        <a class="feed__item-readmore" href="/posts/@article.Slug">Read</a>
+                    </div>
+                }
             </div>
-        }
-    </div>
 
-    @if (Model.TotalPages > 1)
-    {
-        var currentPageIndex = Model.Index;
-        var lastPage = Model.TotalPages;
-        <div class="Pagination-module--pagination--2H3nO">
-            <div class="Pagination-module--pagination__prev--bet5s"><a aria-current="page" rel="prev" class="Pagination-module--pagination__prev-link--1Nzs6 Pagination-module--pagination__prev-link--disable--Yklx9" href="@Model.Previous?.Url">← PREV</a></div>
-            <div class="Pagination-module--pagination__next--3hFiN"><a rel="next" class="Pagination-module--pagination__next-link--3FUtA" href="@Model.Next?.Url">→ NEXT</a></div>
+            @if (Model.TotalPages > 1)
+            {
+                var currentPageIndex = Model.Index;
+                var lastPage = Model.TotalPages;
+                <div class="pagination">
+                    <div class="pagination__prev"><a aria-current="page" rel="prev" class="pagination__prev-link pagination__prev-link--disable" href="@Model.Previous?.Url">← PREV</a></div>
+                    <div class="pagination__next"><a rel="next" class="pagination__next-link" href="@Model.Next?.Url">→ NEXT</a></div>
+                </div>
+            }
+
         </div>
-    }
-
+    </div>
 </div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="./assets/scss/components/Feed/Feed.module.css" />
+    <link rel="stylesheet" href="./assets/scss/components/Page/Page.module.css" />
+    <link rel="stylesheet" href="./assets/scss/components/Sidebar/Sidebar.module.css" />
+    <link rel="stylesheet" href="./assets/scss/components/Sidebar/Author/Author.module.css" />
+    <link rel="stylesheet" href="./assets/scss/components/Sidebar/Contacts/Contacts.module.css" />
+    <link rel="stylesheet" href="./assets/scss/components/Sidebar/Copyright/Copyright.module.css" />
+    <link rel="stylesheet" href="./assets/scss/components/Sidebar/Menu/Menu.module.css" />
+}
