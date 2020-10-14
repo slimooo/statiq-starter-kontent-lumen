@@ -1,17 +1,17 @@
 ﻿@using Kentico.Kontent.Statiq.Lumen.Models
-@using Kentico.Kontent.Statiq.Lumen.Pipelines
-@model PagedContent<Article>
+@using Kentico.Kontent.Statiq.Lumen.Models.ViewModels
+@model HomeViewModel
 @{
     ViewData["Title"] = "Blog - Lumen";
 }
-
-<Sidebar />
-
+@{
+    await Html.RenderPartialAsync("Shared/Sidebar/_Sidebar.cshtml", Model.Sidebar);
+}
 <div class="page">
     <div class="page__inner">
         <div class="page__body">
             <div>
-                @foreach (Article article in Model.Items)
+                @foreach (var article in Model.Articles.Items)
                 {
                     <div class="feed__item">
                         <div><time class="feed__item-meta-time" datetime="August 19, 2017">@Html.DisplayFor(model => article.Date)</time><span class="feed__item-meta-divider"></span><span><a class="feed__item-meta-category-link" href="/category/typography/">@Html.Raw(string.Join(", ", article.TagObjects.Select(t => t.Title)))</a></span></div>
@@ -22,13 +22,13 @@
                 }
             </div>
 
-            @if (Model.TotalPages > 1)
+            @if (Model.Articles.TotalPages > 1)
             {
-                var currentPageIndex = Model.Index;
-                var lastPage = Model.TotalPages;
+                var currentPageIndex = Model.Articles.Index;
+                var lastPage = Model.Articles.TotalPages;
                 <div class="pagination">
-                    <div class="pagination__prev"><a aria-current="page" rel="prev" class="pagination__prev-link pagination__prev-link--disable" href="@Model.Previous?.Url">← PREV</a></div>
-                    <div class="pagination__next"><a rel="next" class="pagination__next-link" href="@Model.Next?.Url">→ NEXT</a></div>
+                    <div class="pagination__prev"><a aria-current="page" rel="prev" class="pagination__prev-link pagination__prev-link--disable" href="@Model.Articles.Previous?.Url">← PREV</a></div>
+                    <div class="pagination__next"><a rel="next" class="pagination__next-link" href="@Model.Articles.Next?.Url">→ NEXT</a></div>
                 </div>
             }
 
@@ -38,8 +38,8 @@
 
 @section Styles
 {
-    <link rel="stylesheet" href="./assets/scss/components/Feed/Feed.module.css" />
     <link rel="stylesheet" href="./assets/scss/components/Page/Page.module.css" />
+    <link rel="stylesheet" href="./assets/scss/components/Feed/Feed.module.css" />
     <link rel="stylesheet" href="./assets/scss/components/Sidebar/Sidebar.module.css" />
     <link rel="stylesheet" href="./assets/scss/components/Sidebar/Author/Author.module.css" />
     <link rel="stylesheet" href="./assets/scss/components/Sidebar/Contacts/Contacts.module.css" />

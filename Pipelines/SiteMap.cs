@@ -1,11 +1,10 @@
-﻿using Kentico.Kontent.Statiq.Lumen.Pipelines;
-using Kontent.Statiq;
+﻿using Kontent.Statiq;
 using Statiq.Common;
 using Statiq.Core;
 using System;
 using System.Linq;
 
-namespace Generator.Pipelines
+namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
     public class SiteMap : Pipeline
     {
@@ -15,7 +14,7 @@ namespace Generator.Pipelines
             ProcessModules = new ModuleList(
                 // pull documents from other pipelines
                 new ReplaceDocuments(Dependencies.ToArray()),
-                new SetMetadata(Keys.SitemapItem, Config.FromDocument<SitemapItem>((doc, ctx) =>
+                new SetMetadata(Keys.SitemapItem, Config.FromDocument((doc, ctx) =>
                 {
                     var siteMapItem = new SitemapItem(doc.Destination.FullPath)
                     {

@@ -12,6 +12,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
             {typeof(Article), "article"},
             {typeof(Author), "author"},
             {typeof(Category), "category"},
+            {typeof(Contact), "contact"},
             {typeof(Menu), "menu"},
             {typeof(MenuItem), "menu_item"},
             {typeof(Page), "page"},

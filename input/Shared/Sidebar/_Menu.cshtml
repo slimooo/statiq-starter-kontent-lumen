@@ -1,0 +1,13 @@
+﻿@using Kentico.Kontent.Statiq.Lumen.Models
+@model IEnumerable<MenuItem>
+
+<nav class="menu">
+    <ul class="menu__list">
+        @foreach (var item in Model)
+        {
+            <li class="menu__list-item">
+                <a href="@item.Slug" ActiveClass="menu__list-item-link--active" Class="menu__list-item-link">@item.Label</a>
+            </li>
+        }
+    </ul>
+</nav>

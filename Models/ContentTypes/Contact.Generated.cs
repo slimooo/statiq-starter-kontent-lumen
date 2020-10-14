@@ -10,20 +10,16 @@ using Kentico.Kontent.Delivery.Abstractions;
 
 namespace Kentico.Kontent.Statiq.Lumen.Models
 {
-    public partial class Author
+    public partial class Contact
     {
-        public const string Codename = "author";
-        public const string AvatarImageCodename = "avatar_image";
-        public const string BioCodename = "bio";
-        public const string ContactsCodename = "contacts";
-        public const string EmailCodename = "email";
+        public const string Codename = "contact";
+        public const string IconurlCodename = "iconurl";
         public const string NameCodename = "name";
+        public const string UrlCodename = "url";
 
-        public IEnumerable<IAsset> AvatarImage { get; set; }
-        public string Bio { get; set; }
-        public IEnumerable<object> Contacts { get; set; }
-        public string Email { get; set; }
+        public string Iconurl { get; set; }
         public string Name { get; set; }
         public IContentItemSystemAttributes System { get; set; }
+        public string Url { get; set; }
     }
 }

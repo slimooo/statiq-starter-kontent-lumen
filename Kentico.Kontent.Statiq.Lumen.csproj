@@ -17,6 +17,7 @@
     <PackageReference Include="Statiq.Html" Version="1.0.0-beta.23" />
     <PackageReference Include="Statiq.Razor" Version="1.0.0-beta.23" />
     <PackageReference Include="Statiq.Sass" Version="1.0.0-beta.23" />
+    <PackageReference Include="Statiq.Web" Version="1.0.0-beta.7" />
   </ItemGroup>
   
   <PropertyGroup>
@@ -36,6 +37,7 @@
 
   <ItemGroup>
     <Folder Include="input\assets\fonts\" />
+    <Folder Include="input\assets\js\" />
     <Folder Include="src\" />
     <Folder Include="static\" />
   </ItemGroup>

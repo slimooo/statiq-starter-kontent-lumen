@@ -1,7 +1,7 @@
 ﻿using Statiq.Common;
 using Statiq.Core;
 
-namespace Generator.Pipelines
+namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
     public class CopyAssets : Pipeline
     {
@@ -10,10 +10,10 @@ namespace Generator.Pipelines
             var basePath = "assets";
             InputModules = new ModuleList
             {
+                //new CopyFiles("./assets/{css,fonts,js,images}/**/*", "*.{png,ico,webmanifest}"), //TODO
                 new ReadFiles(
                     $"{basePath}/fonts/*",
-                    $"{basePath}/js/libs/*",
-                    $"{basePath}/js/libs/bootstrap/bootstrap.min.js",
+                    $"{basePath}/js/*",
                     $"{basePath}/img/*",
                     $"{basePath}/favicon.ico"),
                 new SetDestination(Config.FromDocument((doc,context) => new NormalizedPath(doc.Destination.ToString().Substring(basePath.Length+1)) ) ),

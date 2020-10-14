@@ -6,8 +6,10 @@ using Statiq.App;
 using Statiq.Common;
 using Kentico.Kontent.Statiq.Lumen.Models;
 using Microsoft.Extensions.Configuration;
+using Statiq.Web;
+using Microsoft.AspNetCore.Mvc.Razor;
 
-namespace Generator
+namespace Kentico.Kontent.Statiq.Lumen
 {
     public static class Program
     {
@@ -19,7 +21,12 @@ namespace Generator
                 {
                     services.AddSingleton<ITypeProvider, CustomTypeProvider>();
                     services.AddDeliveryClient((IConfiguration)settings);
-                })
+                    //services.Configure<RazorViewEngineOptions>(o =>
+                    //{
+                    //    o.ViewLocationFormats.Add("/input/{1}/{0}" + RazorViewEngine.ViewExtension);
+                    //    o.ViewLocationFormats.Add("/input/Shared/{0}" + RazorViewEngine.ViewExtension);
+                    //});
+                }).AddHostingCommands()
                 .RunAsync();
     }
 }

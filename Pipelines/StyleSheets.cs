@@ -2,7 +2,7 @@ using Statiq.Common;
 using Statiq.Core;
 using Statiq.Sass;
 
-namespace Generator.Pipelines
+namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
     public class StyleSheets : Pipeline
     {

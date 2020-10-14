@@ -1,0 +1,15 @@
+﻿@using Kentico.Kontent.Statiq.Lumen.Models
+@model IEnumerable<Contact>
+
+<div class="contacts">
+    <ul class="contacts__list">
+        @foreach (var contact in Model)
+        {
+            <li class="contacts__list-item" key="@contact.Name">
+                <a class="contacts__list-item-link" href="@contact.Url" rel="noopener noreferrer" target="_blank">
+                    <Icon name={name} icon={getIcon(name)} />
+                </a>
+            </li>
+        }
+    </ul>
+</div>

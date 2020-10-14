@@ -1,10 +1,9 @@
-using Kentico.Kontent.Statiq.Lumen.Pipelines;
 using Kontent.Statiq;
 using Statiq.Common;
 using Statiq.Core;
 using System.Linq;
 
-namespace Generator.Pipelines
+namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
     public class DownloadImages : Pipeline
     {
@@ -17,7 +16,7 @@ namespace Generator.Pipelines
                 new KontentDownloadImages()
             );
             OutputModules = new ModuleList(
-                
+
                 new WriteFiles()
             );
         }

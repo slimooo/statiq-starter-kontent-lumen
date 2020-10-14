@@ -1,0 +1,23 @@
+﻿@using Kentico.Kontent.Statiq.Lumen.Models
+@model Author
+
+<div class="author">
+    <Link to="/">
+    <img src="@Model.AvatarImage.FirstOrDefault().Url"
+         class="author__photo"
+         width="75"
+         height="75"
+         alt="@Model.Name" />
+    </Link>
+
+    { isIndex === true ? (
+    <h1 class="author__title">
+        <Link class="author__title-link" to="/">@Model.Name</Link>
+    </h1>
+    ) : (
+    <h2 class="author__title">
+        <Link class="author__title-link" to="/">@Model.Name</Link>
+    </h2>
+    )}
+    <p class="author__subtitle">@Model.Bio</p>
+</div>

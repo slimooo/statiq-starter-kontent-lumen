@@ -7,7 +7,7 @@ using Statiq.Core;
 using Statiq.Razor;
 using SortOrder = Kontent.Statiq.SortOrder;
 
-namespace Generator.Pipelines
+namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
     public class Posts : Pipeline
     {
@@ -16,8 +16,8 @@ namespace Generator.Pipelines
             InputModules = new ModuleList{
                 new Kontent<Article>(deliveryClient)
                     .OrderBy(Article.DateCodename, SortOrder.Descending)
-                    .WithQuery( new DepthParameter(1), new IncludeTotalCountParameter() ),
-                new SetDestination(Config.FromDocument((doc, ctx)  => new NormalizedPath($"{doc.AsKontent<Article>().Slug}" ))),
+                    .WithQuery(new DepthParameter(1), new IncludeTotalCountParameter()),
+                new SetDestination(Config.FromDocument((doc, ctx)  => new NormalizedPath($"{doc.AsKontent<Article>().Slug}.html" ))),
             };
 
             ProcessModules = new ModuleList {
@@ -27,7 +27,7 @@ namespace Generator.Pipelines
                 new KontentImageProcessor()*/ // TODO: uncomment
             };
 
-            OutputModules = new ModuleList { 
+            OutputModules = new ModuleList {
                 new WriteFiles(),
             };
         }
