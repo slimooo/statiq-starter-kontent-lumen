@@ -1,23 +1,29 @@
-﻿@using Kentico.Kontent.Statiq.Lumen.Models
-@model Author
+﻿@using Kentico.Kontent.Statiq.Lumen.Models.ViewModels
+@model SidebarViewModel
+@{
+    var author = Model.Author;
+}
 
 <div class="author">
-    <Link to="/">
-    <img src="@Model.AvatarImage.FirstOrDefault().Url"
-         class="author__photo"
-         width="75"
-         height="75"
-         alt="@Model.Name" />
-    </Link>
+    <a href="/">
+        <img src="@author.AvatarImage.FirstOrDefault().Url"
+             class="author__photo"
+             width="75"
+             height="75"
+             alt="@author.Name" />
+    </a>
 
-    { isIndex === true ? (
-    <h1 class="author__title">
-        <Link class="author__title-link" to="/">@Model.Name</Link>
-    </h1>
-    ) : (
-    <h2 class="author__title">
-        <Link class="author__title-link" to="/">@Model.Name</Link>
-    </h2>
-    )}
-    <p class="author__subtitle">@Model.Bio</p>
+    @if (Model.IsIndex)
+    {
+        <h1 class="author__title">
+            <a class="author__title-link" href="/">@author.Name</a>
+        </h1>
+    }
+    else
+    {
+        <h2 class="author__title">
+            <a class="author__title-link" href="/">@author.Name</a>
+        </h2>
+    }
+    <p class="author__subtitle">@author.Bio</p>
 </div>

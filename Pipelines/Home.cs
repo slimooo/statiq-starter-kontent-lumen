@@ -32,7 +32,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                             Contacts = context.Outputs.FromPipeline(nameof(Contacts)).Select(x => x.AsKontent<Contact>()),
                             Author = context.Outputs.FromPipeline(nameof(Authors)).Select(x => x.AsKontent<Author>()).FirstOrDefault(),
                             Metadata = context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
-
+                            IsIndex = true
                         }
                     })
                     )/*,

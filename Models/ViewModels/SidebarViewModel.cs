@@ -11,5 +11,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Models.ViewModels
         public Author Author { get; set; }
 
         public SiteMetadata Metadata { get; set; }
+
+        public bool IsIndex { get; set; }
     }
 }
