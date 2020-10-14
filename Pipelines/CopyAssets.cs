@@ -10,7 +10,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
             var basePath = "assets";
             InputModules = new ModuleList
             {
-                //new CopyFiles("./assets/{css,fonts,js,images}/**/*", "*.{png,ico,webmanifest}"), //TODO
+                new CopyFiles("./assets/{css,fonts,js,images}/**/*", "*.{png,ico,webmanifest}"), //TODO
                 new ReadFiles(
                     $"{basePath}/fonts/*",
                     $"{basePath}/js/*",

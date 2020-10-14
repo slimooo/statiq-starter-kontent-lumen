@@ -4,10 +4,10 @@
     var author = Model.Author;
 }
 
-<div class="author">
+<div class="sidebar__author">
     <a href="/">
         <img src="@author.AvatarImage.FirstOrDefault().Url"
-             class="author__photo"
+             class="sidebar__author-photo"
              width="75"
              height="75"
              alt="@author.Name" />
@@ -15,15 +15,15 @@
 
     @if (Model.IsIndex)
     {
-        <h1 class="author__title">
-            <a class="author__title-link" href="/">@author.Name</a>
+        <h1 class="sidebar__author-title">
+            <a class="sidebar__author-title-link" href="/">@author.Name</a>
         </h1>
     }
     else
     {
-        <h2 class="author__title">
-            <a class="author__title-link" href="/">@author.Name</a>
+        <h2 class="sidebar__author-title">
+            <a class="sidebar__author-title-link" href="/">@author.Name</a>
         </h2>
     }
-    <p class="author__subtitle">@author.Bio</p>
+    <p class="sidebar__author-subtitle">@author.Bio</p>
 </div>

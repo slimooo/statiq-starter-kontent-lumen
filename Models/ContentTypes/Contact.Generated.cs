@@ -13,11 +13,11 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
     public partial class Contact
     {
         public const string Codename = "contact";
-        public const string IconurlCodename = "iconurl";
+        public const string IconCodename = "icon";
         public const string NameCodename = "name";
         public const string UrlCodename = "url";
 
-        public string Iconurl { get; set; }
+        public string Icon { get; set; }
         public string Name { get; set; }
         public IContentItemSystemAttributes System { get; set; }
         public string Url { get; set; }

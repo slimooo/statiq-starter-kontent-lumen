@@ -7,20 +7,17 @@
 @{
     await Html.RenderPartialAsync("Shared/Sidebar/_Sidebar.cshtml", Model.Sidebar);
 }
-<div class="page">
-    <div class="page__inner">
-        <div class="page__body">
-            <div>
+<div class="content">
+    <div class="content__inner">
                 @foreach (var article in Model.Articles.Items)
                 {
-                    <div class="feed__item">
-                        <div><time class="feed__item-meta-time" datetime="August 19, 2017">@Html.DisplayFor(model => article.Date)</time><span class="feed__item-meta-divider"></span><span><a class="feed__item-meta-category-link" href="/category/typography/">@Html.Raw(string.Join(", ", article.TagObjects.Select(t => t.Title)))</a></span></div>
-                        <h2 class="feed__item-title"><a class="feed__item-title-link" href="@article.Slug">@article.Title</a></h2>
-                        <p class="feed__item-description">@article.Description</p>
-                        <a class="feed__item-readmore" href="/posts/@article.Slug">Read</a>
+                    <div class="article">
+                        <div><time class="article__meta-time" datetime="August 19, 2017">@Html.DisplayFor(model => article.Date)</time><span class="article__meta-divider"></span><span class="article__meta-category"><a class="article__meta-category-link" href="/category/typography/">@Html.Raw(string.Join(", ", article.TagObjects.Select(t => t.Title)))</a></span></div>
+                        <h2 class="article__title"><a class="article__title-link" href="@article.Slug">@article.Title</a></h2>
+                        <p class="article__description">@article.Description</p>
+                        <a class="article__readmore" href="/posts/@article.Slug">Read</a>
                     </div>
                 }
-            </div>
 
             @if (Model.Articles.TotalPages > 1)
             {
@@ -32,17 +29,9 @@
                 </div>
             }
 
-        </div>
     </div>
 </div>
 
 @section Styles
 {
-    <link rel="stylesheet" href="./assets/scss/components/Page/Page.module.css" />
-    <link rel="stylesheet" href="./assets/scss/components/Feed/Feed.module.css" />
-    <link rel="stylesheet" href="./assets/scss/components/Sidebar/Sidebar.module.css" />
-    <link rel="stylesheet" href="./assets/scss/components/Sidebar/Author/Author.module.css" />
-    <link rel="stylesheet" href="./assets/scss/components/Sidebar/Contacts/Contacts.module.css" />
-    <link rel="stylesheet" href="./assets/scss/components/Sidebar/Copyright/Copyright.module.css" />
-    <link rel="stylesheet" href="./assets/scss/components/Sidebar/Menu/Menu.module.css" />
 }
