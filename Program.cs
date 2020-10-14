@@ -26,7 +26,8 @@ namespace Kentico.Kontent.Statiq.Lumen
                     //    o.ViewLocationFormats.Add("/input/{1}/{0}" + RazorViewEngine.ViewExtension);
                     //    o.ViewLocationFormats.Add("/input/Shared/{0}" + RazorViewEngine.ViewExtension);
                     //});
-                }).AddHostingCommands()
+                })
+                .AddHostingCommands()
                 .RunAsync();
     }
 }
