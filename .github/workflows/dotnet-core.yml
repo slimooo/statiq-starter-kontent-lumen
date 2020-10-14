@@ -3,8 +3,8 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  #pull_request:
+   # branches: [ master ]
 
 jobs:
   build:
@@ -37,4 +37,10 @@ jobs:
       with:
         name: "Site"
         path: ./output     
-  
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@3.6.2
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: output
+        CLEAN: true # Automatically remove deleted files from the deploy branch
