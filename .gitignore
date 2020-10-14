@@ -36,3 +36,12 @@ msbuild.wrn
 # Visual Studio 2015
 .vs/
 output
+
+# JS
+node_modules/
+.cache/
+public/
+npm-debug.log
+.eslintcache
+.gatsby-context.js
+gatsby-starter-lumen.iml

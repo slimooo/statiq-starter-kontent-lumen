@@ -35,11 +35,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="input\assets\fonts\" />
-    <Folder Include="input\assets\js\" />
-    <Folder Include="src\" />
-    <Folder Include="static\" />
-  </ItemGroup>
-
 </Project>
