@@ -3,7 +3,7 @@
 <div class="sidebar">
     <div class="sidebar__inner">
         @await Html.PartialAsync("Shared/Sidebar/_Author", Model)
-        @await Html.PartialAsync("Shared/Sidebar/_Menu", Model.Menu)
+        @await Html.PartialAsync("Shared/Sidebar/_Menu", Model.Menu.MenuItemsTyped)
         @await Html.PartialAsync("Shared/Sidebar/_Contacts", Model.Contacts)
         @await Html.PartialAsync("Shared/Sidebar/_Copyright", Model.Metadata.Copyright)
     </div>

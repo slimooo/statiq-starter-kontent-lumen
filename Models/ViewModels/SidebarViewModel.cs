@@ -6,7 +6,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Models.ViewModels
     {
         public IEnumerable<Contact> Contacts { get; set; }
 
-        public IEnumerable<MenuItem> Menu { get; set; }
+        public Menu Menu { get; set; }
 
         public Author Author { get; set; }
 

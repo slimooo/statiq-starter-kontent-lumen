@@ -28,7 +28,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                         Articles = document.AsPagedKontent<Article>() ,
                         Sidebar = new SidebarViewModel
                         {
-                            Menu = context.Outputs.FromPipeline(nameof(MenuItems)).Select(x => x.AsKontent<MenuItem>()),
+                            Menu = context.Outputs.FromPipeline(nameof(MenuItems)).Select(x => x.AsKontent<Menu>()).FirstOrDefault(),
                             Contacts = context.Outputs.FromPipeline(nameof(Contacts)).Select(x => x.AsKontent<Contact>()),
                             Author = context.Outputs.FromPipeline(nameof(Authors)).Select(x => x.AsKontent<Author>()).FirstOrDefault(),
                             Metadata = context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
