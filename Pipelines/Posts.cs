@@ -5,7 +5,6 @@ using Kontent.Statiq;
 using Statiq.Common;
 using Statiq.Core;
 using Statiq.Razor;
-using SortOrder = Kontent.Statiq.SortOrder;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
@@ -23,8 +22,8 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
             ProcessModules = new ModuleList {
                 new MergeContent(new ReadFiles(patterns: "Post.cshtml") ),
                 new RenderRazor()
-                 .WithModel(Config.FromDocument((document, context) => document.AsKontent<Article>()))/*,
-                new KontentImageProcessor()*/ // TODO: uncomment
+                 .WithModel(Config.FromDocument((document, context) => document.AsKontent<Article>())),
+                new KontentImageProcessor()
             };
 
             OutputModules = new ModuleList {

@@ -35,8 +35,8 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                             IsIndex = true
                         }
                     })
-                    )/*,
-                new KontentImageProcessor()*/ //TODO: remove
+                    ),
+                new KontentImageProcessor()
 
             );
 
