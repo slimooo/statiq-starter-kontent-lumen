@@ -19,7 +19,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                 new Kontent<Article>(deliveryClient)
                     .OrderBy(Article.DateCodename, SortOrder.Descending)
                     .WithQuery(new DepthParameter(1), new IncludeTotalCountParameter()),
-                new SetDestination(Config.FromDocument((doc, ctx)  => new NormalizedPath($"{doc.AsKontent<Article>().Slug}.html" ))),
+                new SetDestination(Config.FromDocument((doc, ctx)  => new NormalizedPath($"posts/{doc.AsKontent<Article>().Slug}.html" ))),
             };
 
             ProcessModules = new ModuleList {
