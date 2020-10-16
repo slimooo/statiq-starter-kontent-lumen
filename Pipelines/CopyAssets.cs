@@ -9,7 +9,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
         {
             InputModules = new ModuleList
             {
-                new CopyFiles("./assets/{css,fonts,js,img}/**/*", "./assets/*.{png,ico,webmanifest}")
+                new CopyFiles("./assets/{css,fonts,js,img}/**/*", "./*.{png,ico,webmanifest}")
             };
         }
     }
