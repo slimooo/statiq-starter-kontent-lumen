@@ -1,7 +1,5 @@
 [![.NET Core](https://github.com/petrsvihlik/statiq-starter-kontent-lumen/workflows/.NET%20Core/badge.svg)](https://github.com/petrsvihlik/statiq-starter-kontent-lumen/actions)
-[![Live demo](https://img.shields.io/badge/-Live%20Demo-brightgreen.svg)](https://petrsvihlik.github.io/statiq-starter-kontent-lumen/)
-
-[![Stack Overflow](https://img.shields.io/badge/Live-DEMO-brightgreen.svg?logo=github&logoColor=white)](https://petrsvihlik.github.io/statiq-starter-kontent-lumen/)
+[![Live Demo](https://img.shields.io/badge/Live-DEMO-brightgreen.svg?logo=github&logoColor=white)](https://petrsvihlik.github.io/statiq-starter-kontent-lumen/)
 
 # Kentico Kontent 💖 Statiq - Lumen Starter
 Lumen is a minimal, lightweight, and mobile-first starter for creating blogs using Statiq and Kentico Kontent.
