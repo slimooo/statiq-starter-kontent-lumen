@@ -27,7 +27,6 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                     async (input, context) =>
                     {
                         var post = input.AsKontent<Article>();
-
                         var html = await ParseHtml(input, context);
                         var article = html?.GetElementsByTagName("article").FirstOrDefault()?.InnerHtml ?? "";
 

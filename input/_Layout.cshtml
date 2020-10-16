@@ -1,17 +1,20 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
-    @{ 
+    @{
         var metadata = ViewBag.SiteMetadata as SiteMetadata;
         var author = ViewBag.Author as Author;
+        var name = author.Name ?? "John Doe";
+        var title = metadata.Title ?? $"{name}'s Blog";
     }
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="alternate" type="application/rss+xml" title="@(metadata.Title ?? "Blog")" href="/rss.xml">
-    <title>Lumen - @(metadata.Title ?? "Blog")</title>
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for @title" href="@IExecutionContext.Current.GetLink("/feed.rss")">
+    <link rel="alternate" type="application/atom+xml" title="Atom feed for @title" href="@IExecutionContext.Current.GetLink("/feed.atom")">
+    <title>Lumen - @title</title>
     <meta name="description" content="@(metadata.Subtitle ?? "Blog about development.")">
-    <meta name="author" content="@(author.Name ?? "John Doe")">
+    <meta name="author" content="@name">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="@IExecutionContext.Current.GetLink("/assets/scss/init.css")">
     <link rel="stylesheet" href="@IExecutionContext.Current.GetLink("/assets/fonts/fontello-771c82e0/css/fontello.css")">
@@ -24,7 +27,5 @@
     <div class="layout">
         @RenderBody()
     </div>
-    @RenderSection("scripts", required: false)
-    @RenderSection("Styles", required: false)
 </body>
 </html>
