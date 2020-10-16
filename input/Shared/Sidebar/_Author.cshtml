@@ -5,25 +5,19 @@
 }
 
 <div class="sidebar__author">
-    <a href="/">
+    <a href="@IExecutionContext.Current.GetLink("/")">
         <img src="@author.AvatarImage.FirstOrDefault().Url"
              class="sidebar__author-photo"
              width="75"
              height="75"
              alt="@author.Name" />
     </a>
+    @{
+        var tag = Model.IsIndex ? "h1" : "h2";
+    }
 
-    @if (Model.IsIndex)
-    {
-        <h1 class="sidebar__author-title">
-            <a class="sidebar__author-title-link" href="/">@author.Name</a>
-        </h1>
-    }
-    else
-    {
-        <h2 class="sidebar__author-title">
-            <a class="sidebar__author-title-link" href="/">@author.Name</a>
-        </h2>
-    }
+    <@tag class="sidebar__author-title">
+        <a class="sidebar__author-title-link" href="@IExecutionContext.Current.GetLink("/")">@author.Name</a>
+    </@tag>
     <p class="sidebar__author-subtitle">@author.Bio</p>
 </div>
