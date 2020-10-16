@@ -8,14 +8,7 @@
     <div class="content__inner">
         @if (Model.Page != null)
         {
-            <div class="page">
-                <h1 class="page__title">
-                    @Model.Page.Title
-                </h1>
-                <div class="page__body">
-                    @Html.Raw(Model.Page.Description)
-                </div>
-            </div>
+            @await Html.PartialAsync("Shared/_Page", new PageViewModel(Model.Page.Title, Model.Page.Description, Model.Sidebar));
         }
         else
         {
