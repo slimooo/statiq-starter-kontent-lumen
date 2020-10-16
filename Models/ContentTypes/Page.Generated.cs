@@ -14,12 +14,10 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
     {
         public const string Codename = "page";
         public const string DescriptionCodename = "description";
-        public const string GatsbyTemplateCodename = "gatsby_template";
         public const string MetaDescriptionCodename = "meta_description";
         public const string TitleCodename = "title";
 
         public string Description { get; set; }
-        public IEnumerable<IMultipleChoiceOption> GatsbyTemplate { get; set; }
         public string MetaDescription { get; set; }
         public IContentItemSystemAttributes System { get; set; }
         public string Title { get; set; }

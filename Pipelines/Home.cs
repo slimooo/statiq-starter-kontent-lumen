@@ -1,5 +1,4 @@
 ﻿using Kentico.Kontent.Delivery.Abstractions;
-using Kentico.Kontent.Delivery.Urls.QueryParameters;
 using Kentico.Kontent.Statiq.Lumen.Extensions;
 using Kentico.Kontent.Statiq.Lumen.Models;
 using Kentico.Kontent.Statiq.Lumen.Models.ViewModels;
@@ -23,21 +22,17 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                 new SetDestination(Config.FromDocument((doc, ctx) => Filename(doc))),
                 new MergeContent(new ReadFiles("Index.cshtml")),
                 new RenderRazor()
-                    .WithModel(Config.FromDocument((document, context) => 
-                    new HomeViewModel() { 
-                        Articles = document.AsPagedKontent<Article>() ,
-                        Sidebar = new SidebarViewModel
-                        {
-                            Menu = context.Outputs.FromPipeline(nameof(MenuItems)).Select(x => x.AsKontent<Menu>()).FirstOrDefault(),
-                            Contacts = context.Outputs.FromPipeline(nameof(Contacts)).Select(x => x.AsKontent<Contact>()),
-                            Author = context.Outputs.FromPipeline(nameof(Authors)).Select(x => x.AsKontent<Author>()).FirstOrDefault(),
-                            Metadata = context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
-                            IsIndex = true
-                        }
-                    })
-                    ),
+                    .WithModel(Config.FromDocument((document, context) =>
+                         new HomeViewModel(document.AsPagedKontent<Article>(),
+                           new SidebarViewModel(
+                               context.Outputs.FromPipeline(nameof(Contacts)).Select(x => x.AsKontent<Contact>()),
+                               context.Outputs.FromPipeline(nameof(MenuItems)).Select(x => x.AsKontent<Menu>()).FirstOrDefault(),
+                               true,
+                               context.Outputs.FromPipeline(nameof(Authors)).Select(x => x.AsKontent<Author>()).FirstOrDefault(),
+                               context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault()
+                      ))
+                    )),
                 new KontentImageProcessor()
-
             );
 
             OutputModules = new ModuleList {

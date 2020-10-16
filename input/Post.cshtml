@@ -1,7 +1,8 @@
-﻿@using Kentico.Kontent.Statiq.Lumen.Models
-@model Article
+﻿@model PostViewModel
 @{
-    ViewData["Title"] = Model.Title;
+    ViewData["SiteMetadata"] = Model.Metadata;
+    ViewData["Author"] = Model.Author;
+    var article = Model.Article;
 }
 
 @if (Model != null)
@@ -14,21 +15,21 @@
         </div>
         <div class="article-single">
             <div class="article-single__inner">
-                <h1 class="article-single__title">@Html.DisplayFor(model => model.Title)</h1>
+                <h1 class="article-single__title">@Html.DisplayFor(model => article.Title)</h1>
                 <div class="article-single__body">
-                    @Html.Raw(Model.Content)
+                    @Html.Raw(article.Content)
                 </div>
             </div>
             <div data-kontent-element-codename="date" class="article-single__date">
                 <em>
-                    Published @Html.DisplayFor(model => model.Date)
+                    Published @Html.DisplayFor(model => article.Date)
                 </em>
             </div>
         </div>
         <div class="article-single__footer">
             <div class="article-single__tags">
                 <ul class="article-single__tags-list">
-                    @foreach (var tag in Model.TagObjects)
+                    @foreach (var tag in article.TagObjects)
                     {
                         <li class="article-single__tags-list-item"><a class="article-single__tags-list-item-link" href="@tag.Slug">@tag.Title</a></li>
                     }
@@ -46,8 +47,5 @@
 }
 
 @section Head {
-    @{ await Html.RenderPartialAsync("_SocialSharingMetadata", new SocialSharingMetadata(null, Model)); }
-}
-
-@section scripts {
+    @{ await Html.RenderPartialAsync("_SocialSharingMetadata", new SocialSharingMetadata(null, article)); }
 }

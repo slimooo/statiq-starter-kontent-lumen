@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Kentico.Kontent.Statiq.Lumen.Models.ViewModels
+﻿namespace Kentico.Kontent.Statiq.Lumen.Models.ViewModels
 {
-    public class HomeViewModel
+    public class HomeViewModel : ViewModelBase
     {
-        public PagedContent<Article> Articles { get; set; }
-        public SidebarViewModel Sidebar { get; set; }
+        public Page Page { get; private set; }
+
+        public PagedContent<Article> Articles { get; private set; }
+
+        public SidebarViewModel Sidebar { get; private set; }
+
+        public HomeViewModel(PagedContent<Article> articles, SidebarViewModel sidebar) : base(sidebar.Author, sidebar.Metadata)
+        {
+            Articles = articles;
+            Sidebar = sidebar;
+        }
+
+        public HomeViewModel(Page page, SidebarViewModel sidebar) : base(sidebar.Author, sidebar.Metadata)
+        {
+            Page = page;
+            Sidebar = sidebar;
+        }
     }
 }
