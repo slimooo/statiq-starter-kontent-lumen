@@ -26,14 +26,18 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                 new MergeContent(new ReadFiles(patterns: "Index.cshtml") ),
                 new RenderRazor()
                  .WithModel(Config.FromDocument((document, context) =>
-                 new HomeViewModel(document.AsKontent<MenuItem>().Page,
-                               new SidebarViewModel(
-                               context.Outputs.FromPipeline(nameof(Contacts)).Select(x => x.AsKontent<Contact>()),
-                               context.Outputs.FromPipeline(nameof(MenuItems)).Select(x => x.AsKontent<Menu>()).FirstOrDefault(),
-                               false,
-                               context.Outputs.FromPipeline(nameof(Authors)).Select(x => x.AsKontent<Author>()).FirstOrDefault(),
-                               context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault()
-                      ))))/*,
+                 {
+                    var menuItem = document.AsKontent<MenuItem>();
+                    var model = new HomeViewModel(menuItem.Page,
+                                    new SidebarViewModel(
+                                    context.Outputs.FromPipeline(nameof(Contacts)).Select(x => x.AsKontent<Contact>()),
+                                    context.Outputs.FromPipeline(nameof(MenuItems)).Select(x => x.AsKontent<Menu>()).FirstOrDefault(),
+                                    context.Outputs.FromPipeline(nameof(Authors)).Select(x => x.AsKontent<Author>()).FirstOrDefault(),
+                                    context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
+                                    false, menuItem.Slug));
+                    return model;
+                 }
+                 ))/*,
                 new KontentImageProcessor()*/
             };
 

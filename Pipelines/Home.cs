@@ -17,20 +17,22 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
             Dependencies.AddRange(nameof(Posts), nameof(MenuItems), nameof(Contacts), nameof(Authors), nameof(SiteMetadatas));
             ProcessModules = new ModuleList(
                 // pull documents from other pipelines
-                new ReplaceDocuments(nameof(Posts)),//Dependencies.ToArray()),
+                new ReplaceDocuments(nameof(Posts)),
                 new PaginateDocuments(9),
                 new SetDestination(Config.FromDocument((doc, ctx) => Filename(doc))),
                 new MergeContent(new ReadFiles("Index.cshtml")),
                 new RenderRazor()
                     .WithModel(Config.FromDocument((document, context) =>
-                         new HomeViewModel(document.AsPagedKontent<Article>(),
+                    {
+                        var model = new HomeViewModel(document.AsPagedKontent<Article>(),
                            new SidebarViewModel(
                                context.Outputs.FromPipeline(nameof(Contacts)).Select(x => x.AsKontent<Contact>()),
                                context.Outputs.FromPipeline(nameof(MenuItems)).Select(x => x.AsKontent<Menu>()).FirstOrDefault(),
-                               true,
                                context.Outputs.FromPipeline(nameof(Authors)).Select(x => x.AsKontent<Author>()).FirstOrDefault(),
-                               context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault()
-                      ))
+                               context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
+                               true, string.Empty));
+                        return model;
+                    }
                     )),
                 new KontentImageProcessor()
             );

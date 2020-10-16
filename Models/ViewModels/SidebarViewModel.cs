@@ -8,13 +8,16 @@ namespace Kentico.Kontent.Statiq.Lumen.Models.ViewModels
 
         public Menu Menu { get; private set; }
 
+        public string ActiveMenuItem { get; private set; }
+
         public bool IsIndex { get; private set; }
 
-        public SidebarViewModel(IEnumerable<Contact> contacts, Menu menu, bool isIndex, Author author, SiteMetadata metadata) : base(author, metadata)
+        public SidebarViewModel(IEnumerable<Contact> contacts, Menu menu, Author author, SiteMetadata metadata, bool isIndex, string activeMenuItem) : base(author, metadata)
         {
             Contacts = contacts;
             Menu = menu;
             IsIndex = isIndex;
+            ActiveMenuItem = activeMenuItem;
         }
     }
 }
