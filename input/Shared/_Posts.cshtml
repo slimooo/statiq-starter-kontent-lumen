@@ -5,7 +5,7 @@
 @foreach (var article in Model.Items)
 {
     <div class="article">
-        <div><time class="article__meta-time" datetime="@article.Date.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture.DateTimeFormat)">@Html.DisplayFor(model => article.Date)</time><span class="article__meta-divider"></span><span class="article__meta-category"><a class="article__meta-category-link" href="/category/typography/">@Html.Raw(string.Join(", ", article.TagObjects.Select(t => t.Title)))</a></span></div>
+        <div><time class="article__meta-time" datetime="@article.Date.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture.DateTimeFormat)">@Html.DisplayFor(model => article.Date)</time><span class="article__meta-divider"></span><span class="article__meta-category"><a class="article__meta-category-link" href="@IExecutionContext.Current.GetLink($"/category/{article.SelectedCategory.Slug}")">@Html.Raw(string.Join(", ", article.SelectedCategory.Title))</a></span></div>
         <h2 class="article__title"><a class="article__title-link" href="@IExecutionContext.Current.GetLink($"/posts/{article.Slug}")">@article.Title</a></h2>
         <p class="article__description">@article.Description</p>
         <a class="article__readmore" href="@IExecutionContext.Current.GetLink($"/posts/{article.Slug}")">Read</a>

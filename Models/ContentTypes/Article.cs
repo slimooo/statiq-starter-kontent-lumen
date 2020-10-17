@@ -8,6 +8,8 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
     {
         public IEnumerable<Tag> TagObjects => Tags.OfType<Tag>();
 
+        public Category SelectedCategory => Category.OfType<Category>().First();
+
         public string MetadataTwitterCreator => string.Empty;
 
         public string UrlPattern => string.Empty;

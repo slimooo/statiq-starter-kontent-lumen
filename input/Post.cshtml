@@ -31,7 +31,7 @@
                 <ul class="article-single__tags-list">
                     @foreach (var tag in article.TagObjects)
                     {
-                        <li class="article-single__tags-list-item"><a class="article-single__tags-list-item-link" href="@tag.Slug">@tag.Title</a></li>
+                        <li class="article-single__tags-list-item"><a class="article-single__tags-list-item-link" href="@IExecutionContext.Current.GetLink($"/tag/{tag.Slug}")">@tag.Title</a></li>
                     }
                 </ul>
             </div>
