@@ -36,9 +36,8 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                     new FlattenTree(true), // Flatten the tree structure
                     new FilterDocuments(TypedContentExtensions.KontentItemKey), // Keep only Kontent items (exclude the parent group doc)
                     new MergeMetadata {  // Copy metadata from child documents to parent
-                        new PaginateDocuments(9) // Create paginatin (docs will reside under a parent doc - a page)
+                        new PaginateDocuments(4) // Create pagination (docs will reside under a parent doc - a page)
                     }.Reverse(), // Reverse not to copy the metadata in the other direction
-                    new SetDestination(Config.FromDocument((doc, ctx) => Filename(doc))), // Set output
                     new MergeContent(new ReadFiles(patterns: "Index.cshtml") ),
                     new RenderRazor()
                      .WithModel(Config.FromDocument((document, context) =>
@@ -53,7 +52,8 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                                         false, null), category.Title);
                         return model;
                      }
-                     ))
+                     )),
+                    new SetDestination(Config.FromDocument((doc, ctx) => Filename(doc))), // Set output
                 }
                 /*,
                 new KontentImageProcessor()*/
@@ -70,7 +70,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 
             var category = document.Get<Category>(nameof(Article.SelectedCategory));
 
-            return new NormalizedPath($"{category.Slug}{(index > 1 ? index.ToString() : "")}.html");
+            return new NormalizedPath($"category/{category.Slug}/{(index > 1 ? $"{index}/" : "")}index.html");
         }
     }
 }
