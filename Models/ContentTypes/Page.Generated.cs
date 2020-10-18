@@ -13,11 +13,11 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
     public partial class Page
     {
         public const string Codename = "page";
-        public const string DescriptionCodename = "description";
+        public const string BodyCodename = "body";
         public const string MetaDescriptionCodename = "meta_description";
         public const string TitleCodename = "title";
 
-        public string Description { get; set; }
+        public string Body { get; set; }
         public string MetaDescription { get; set; }
         public IContentItemSystemAttributes System { get; set; }
         public string Title { get; set; }

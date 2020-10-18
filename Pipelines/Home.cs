@@ -18,7 +18,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
             ProcessModules = new ModuleList(
                 // pull documents from other pipelines
                 new ReplaceDocuments(nameof(Posts)),
-                new PaginateDocuments(9),
+                new PaginateDocuments(4),
                 new SetDestination(Config.FromDocument((doc, ctx) => Filename(doc))),
                 new MergeContent(new ReadFiles("Index.cshtml")),
                 new RenderRazor()

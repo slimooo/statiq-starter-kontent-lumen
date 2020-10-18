@@ -6,13 +6,25 @@
 @await Html.PartialAsync("Shared/Sidebar/_Sidebar", Model.Sidebar)
 <div class="content">
     <div class="content__inner">
-        @if (Model.Page != null)
-        {
-            @await Html.PartialAsync("Shared/_Page", new PageViewModel(Model.Page.Title, Model.Page.Description, Model.Sidebar));
-        }
-        else
-        {
-            @await Html.PartialAsync("Shared/_Posts", Model.Articles);
-        }
+
+        <div class="page">
+            @if (!string.IsNullOrWhiteSpace(Model.Page.Title))
+            {
+                <h1 class="page__title">
+                    @Model.Page.Title
+                </h1>
+            }
+        <div class="page__body">
+            @if (Model.Articles != null)
+            {
+                @await Html.PartialAsync("Shared/_Posts", Model.Articles);
+            }
+            else
+            {
+                @Html.Raw(Model.Page.Body)
+            }
+        </div>
+        </div>
+
     </div>
 </div>

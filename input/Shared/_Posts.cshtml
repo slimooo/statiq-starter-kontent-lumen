@@ -14,10 +14,8 @@
 
 @if (Model.TotalPages > 1)
 {
-    var currentPageIndex = Model.Index;
-    var lastPage = Model.TotalPages;
     <div class="pagination">
-        <div class="pagination__prev"><a aria-current="page" rel="prev" class="pagination__prev-link pagination__prev-link--disable" href="@Model.Previous?.Url">← PREV</a></div>
-        <div class="pagination__next"><a rel="next" class="pagination__next-link" href="@Model.Next?.Url">→ NEXT</a></div>
+        <div class="pagination__prev"><a aria-current="page" rel="prev" class="pagination__prev-link @(Model.Previous != null ? "" : "pagination__prev-link--disable")" href="@Model.Previous?.Url">← PREV</a></div>
+        <div class="pagination__next"><a rel="next" class="pagination__next-link @(Model.Next != null ? "" : "pagination__next-link--disable") " href="@Model.Next?.Url">→ NEXT</a></div>
     </div>
 }
