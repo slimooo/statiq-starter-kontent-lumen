@@ -7,7 +7,6 @@ using Statiq.Common;
 using Kentico.Kontent.Statiq.Lumen.Models;
 using Microsoft.Extensions.Configuration;
 using Statiq.Web;
-using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace Kentico.Kontent.Statiq.Lumen
 {
