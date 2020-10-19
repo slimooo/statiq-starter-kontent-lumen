@@ -26,7 +26,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                     {
                         new ReplaceDocuments(Config.FromDocument<IEnumerable<IDocument>>(doc => doc.GetChildren())), // Remove the group parent page (to be able to apply Pagination)
                         new PaginateDocuments(4), // Create pagination (docs will reside under a parent doc - a page)
-                        new MergeContent(new ReadFiles(patterns: "Index.cshtml") ),
+                        new MergeContent(new ReadFiles(patterns: "Index.cshtml")),
                         new RenderRazor()
                             .WithModel(Config.FromDocument((document, context) =>
                             {
