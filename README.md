@@ -35,7 +35,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 1. Go to the "Project Settings", select API keys and copy the following keys for further reference
     + Project ID
     + Management API key
-1. Install [Kontent Backup Manager](https://github.com/Kentico/kontent-backup-manager-js) and import data to the newly created project from [`kontent-backup.zip`](./kontent-backup.zip) file:
+1. Install [Kontent Backup Manager](https://github.com/Kentico/kontent-backup-manager-js) and import data to the newly created project from [`content.zip`](./content.zip) file:
 
     ```sh
     npm i -g @kentico/kontent-backup-manager
