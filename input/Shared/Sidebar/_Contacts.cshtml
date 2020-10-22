@@ -5,8 +5,8 @@
     <ul class="links__list">
         @foreach (var contact in Model)
         {
-            <li class="links__list-item" key="@contact.Name">
-                <a href="@contact.Url" rel="noopener noreferrer" target="_blank">
+            <li class="links__list-item">
+                <a href="@contact.Url" rel="noopener noreferrer" target="_blank" aria-label="@contact.Name">
                     <i class="@contact.Icon"></i>
                 </a>
             </li>
