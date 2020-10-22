@@ -1,8 +1,9 @@
 ﻿@model PostViewModel
 @{
+    var article = Model.Article;
+    ViewBag.Title = $"{article.Title} - {Model.Metadata.Title}";
     ViewData["SiteMetadata"] = Model.Metadata;
     ViewData["Author"] = Model.Author;
-    var article = Model.Article;
 }
 
 @if (Model != null)

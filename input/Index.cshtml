@@ -2,11 +2,14 @@
 @{
     ViewData["SiteMetadata"] = Model.Metadata;
     ViewData["Author"] = Model.Author;
+    if (Model.Page.Title != null)
+    {
+        ViewBag.Title = $"{Model.Page.Title} - {Model.Metadata.Title}";
+    }
 }
 @await Html.PartialAsync("Shared/Sidebar/_Sidebar", Model.Sidebar)
 <div class="content">
     <div class="content__inner">
-
         <div class="page">
             @if (!string.IsNullOrWhiteSpace(Model.Page.Title))
             {
@@ -25,6 +28,5 @@
             }
         </div>
         </div>
-
     </div>
 </div>
