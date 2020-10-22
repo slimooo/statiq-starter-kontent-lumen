@@ -1,4 +1,5 @@
 ﻿@using Kentico.Kontent.Statiq.Lumen.Models.ViewModels
+@using Kentico.Kontent.ImageTransformation
 @model SidebarViewModel
 @{
     var author = Model.Author;
@@ -6,7 +7,7 @@
 
 <div class="sidebar__author">
     <a href="@IExecutionContext.Current.GetLink("/")">
-        <img src="@author.AvatarImage.FirstOrDefault().Url"
+        <img src="@(new ImageUrlBuilder(new Uri(author.AvatarImage.FirstOrDefault().Url)).WithWidth(75).WithFormat(ImageFormat.Webp).Url)"
              class="sidebar__author-photo"
              width="75"
              height="75"
