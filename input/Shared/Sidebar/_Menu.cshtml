@@ -6,7 +6,7 @@
         @foreach (var item in Model)
         {
             <li class="menu__list-item">
-                <a href="@IExecutionContext.Current.GetLink(string.IsNullOrEmpty(item.Slug) ? "/" : item.Slug)"  class="menu__list-item-link @(item.Slug == ViewBag.ActiveMenuItem ? " active--exact  active" : "")">@item.Label</a>
+                <a href="@IExecutionContext.Current.GetLink(string.IsNullOrEmpty(item.Slug) ? "/" : $"pages/{item.Slug}")"  class="menu__list-item-link @(item.Slug == ViewBag.ActiveMenuItem ? " active--exact  active" : "")">@item.Label</a>
             </li>
         }
     </ul>

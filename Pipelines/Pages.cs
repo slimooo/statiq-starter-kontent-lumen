@@ -19,7 +19,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
             InputModules = new ModuleList{
                 new Kontent<MenuItem>(deliveryClient)
                     .WithQuery(new IncludeTotalCountParameter(), new NotEmptyFilter("elements.content")),
-                new SetDestination(Config.FromDocument((doc, ctx)  => new NormalizedPath($"{doc.AsKontent<MenuItem>().Slug}.html" ))),
+                new SetDestination(Config.FromDocument((doc, ctx)  => new NormalizedPath($"pages/{doc.AsKontent<MenuItem>().Slug}/index.html" ))),
             };
 
             ProcessModules = new ModuleList {

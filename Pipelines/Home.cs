@@ -46,7 +46,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
         {
             var index = document.GetInt(Keys.Index);
 
-            return new NormalizedPath($"index{(index > 1 ? index.ToString() : "")}.html");
+            return new NormalizedPath($"{(index > 1 ? $"page/{index}/" : "")}index.html");
         }
     }
 }
