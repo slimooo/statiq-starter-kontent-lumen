@@ -7,19 +7,20 @@
         var name = author.Name;
         var title = ViewBag.Title ?? metadata.Title;
     }
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="alternate" type="application/rss+xml" title="RSS feed for @title" href="@IExecutionContext.Current.GetLink("/feed.rss")">
-    <link rel="alternate" type="application/atom+xml" title="Atom feed for @title" href="@IExecutionContext.Current.GetLink("/feed.atom")">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for @title" href="@IExecutionContext.Current.GetLink("/feed.rss")" />
+    <link rel="alternate" type="application/atom+xml" title="Atom feed for @title" href="@IExecutionContext.Current.GetLink("/feed.atom")" />
     <title>@title</title>
-    <meta name="description" content="@(metadata.Subtitle ?? "Blog about development.")">
-    <meta name="author" content="@name">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="@IExecutionContext.Current.GetLink("/assets/scss/init.css")">
-    <link rel="stylesheet" href="@IExecutionContext.Current.GetLink("/assets/fonts/fontello-771c82e0/css/fontello.css")">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap">
-    <link rel="shortcut icon" href="@IExecutionContext.Current.GetLink("favicon.ico")">
+    <meta name="description" content="@(metadata.Subtitle ?? "Blog about development.")" />
+    <meta name="author" content="@name" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="@IExecutionContext.Current.GetLink("/assets/scss/init.css")" />
+    <link rel="preload" href="@(IExecutionContext.Current.GetLink("/assets/fonts/fontello-771c82e0/font/fontello.woff2"))?65524428" />
+    <link rel="stylesheet" href="@IExecutionContext.Current.GetLink("/assets/fonts/fontello-771c82e0/css/fontello.css")" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+    <link rel="shortcut icon" href="@IExecutionContext.Current.GetLink("favicon.ico")" />
     @RenderSection("Head", required: false)
 </head>
 
