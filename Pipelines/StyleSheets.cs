@@ -10,8 +10,13 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
         {
             InputModules = new ModuleList {
                 new ReadFiles(pattern: "assets/scss/**/{!_,}*.scss"),
-                new CompileSass()
-                    .WithCompactOutputStyle(),
+                
+                #if DEBUG
+                new CompileSass().WithCompactOutputStyle(),
+                #else
+                new CompileSass().WithCompressedOutputStyle(),
+                #endif
+ 
                 new SetDestination(".css"),
                 new WriteFiles()
             };
