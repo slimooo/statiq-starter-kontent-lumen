@@ -12,6 +12,7 @@
     <PackageReference Include="Kentico.Kontent.Delivery.Abstractions" Version="14.0.0" />
     <PackageReference Include="Kentico.Kontent.ImageTransformation" Version="14.0.0" />
     <PackageReference Include="Kontent.Statiq" Version="1.0.0-beta0007" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.8" />
     <PackageReference Include="Statiq.App" Version="1.0.0-beta.27" />
     <PackageReference Include="Statiq.Feeds" Version="1.0.0-beta.27" />
@@ -24,6 +25,7 @@
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <UserSecretsId>42813ac8-5d91-4bcb-98f2-7f402adfd9b9</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

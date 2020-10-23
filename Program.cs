@@ -10,21 +10,17 @@ using Statiq.Web;
 
 namespace Kentico.Kontent.Statiq.Lumen
 {
-    public static class Program
+    public class Program
     {
         public static async Task<int> Main(string[] args) =>
             await Bootstrapper
                 .Factory
                 .CreateDefault(args)
+                .BuildConfiguration(cfg => cfg.AddUserSecrets<Program>())
                 .ConfigureServices((services, settings) =>
                 {
                     services.AddSingleton<ITypeProvider, CustomTypeProvider>();
                     services.AddDeliveryClient((IConfiguration)settings);
-                    //services.Configure<RazorViewEngineOptions>(o =>
-                    //{
-                    //    o.ViewLocationFormats.Add("/input/{1}/{0}" + RazorViewEngine.ViewExtension);
-                    //    o.ViewLocationFormats.Add("/input/Shared/{0}" + RazorViewEngine.ViewExtension);
-                    //});
                 })
                 .AddHostingCommands()
                 .RunAsync();
