@@ -18,7 +18,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 + Archive organized by tags and categories.
 + Automatic Sitemap generation.
 + RSS/Atom support out of the box
-+ Google Analytics support.
++ Google Tag Manager support
 
 ## Getting Started
 
@@ -58,12 +58,13 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
   - You can also emulate running the project in a virtual directory by appending `--virtual-dir statiq-starter-kontent-lumen`. See all preview [options](https://statiq.dev/web/running/preview-server).
 - Go to `http://localhost:5080/`
 
-
-
 ### Production deployment to GitHub pages
 - Enable GitHub actions in your repo
 - Copy the [`.github/workflows/dotnet-core.yml`](https://github.com/petrsvihlik/statiq-starter-kontent-lumen/blob/master/.github/workflows/dotnet-core.yml) to your project
 - Go to the repository secrets and set `LinkRoot` to the relative path of your project (e.g. `/statiq-starter-kontent-lumen`) - this is to ensure that all links work properly when deployed to a subfolder
+
+## Configuring features
+- Google Tag Manager -> just add `"TagManagerId": "GTM-XXXXXXX"` to appsettings.json
 
 ## Original work
 This template is licensed under the [MIT](LICENSE) license and the credits for the [original work](https://github.com/alxshelepenok/gatsby-starter-lumen) on the template go to [Alexander Shelepenok](https://github.com/alxshelepenok).
