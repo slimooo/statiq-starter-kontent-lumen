@@ -1,17 +1,9 @@
 ﻿@model Kentico.Kontent.Statiq.Lumen.Models.SocialSharingMetadata
+@* Open Graph - https://ogp.me/ *@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="@Model.Url">
 <meta property="og:title" content="@Model.Title">
 <meta property="og:description" content="@Model.Description">
-<meta name="twitter:card" content="@Model.TwitterCard">
-@if (!string.IsNullOrWhiteSpace(@Model.TwitterCreator))
-{
-    <meta name="twitter:site" content="@Model.TwitterSite"/>
-}
-@if (!string.IsNullOrWhiteSpace(@Model.TwitterCreator))
-{
-    <meta name="twitter:creator" content="@Model.TwitterCreator" />
-}
 
 @if (Model.Image != null)
 {
@@ -29,10 +21,21 @@
     <meta property="og:image:type" content="@Model.Image.Type" />
 }
 
+@* Twitter Card - https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image *@
+<meta property="twitter:title" content="@Model.Title">
+<meta property="twitter:description" content="@Model.Description">
+<meta name="twitter:card" content="@Model.TwitterCard">
+@if (!string.IsNullOrWhiteSpace(@Model.TwitterSite))
+{
+    <meta name="twitter:site" content="@Model.TwitterSite" />
+}
+@if (!string.IsNullOrWhiteSpace(@Model.TwitterCreator))
+{
+    <meta name="twitter:creator" content="@Model.TwitterCreator" />
+}
 
 @if (Model.TwitterImage != null)
 {
-    // https://ogp.me/
     // summary_large_image aspect 2:1, min 300x157 max 4096x4096
     // summary aspect 1:1, min 144x144 max maximum of 4096x4096 pixels
     var (height, width) = Model.TwitterCard switch

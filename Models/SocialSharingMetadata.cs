@@ -7,17 +7,17 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
     {
         public SocialSharingMetadata(IPageMetadata site, IPageMetadata page)
         {
-            Title = page.MetadataOgTitle.Cascade(page.MetadataMetaTitle).Cascade(page.Title);
-            Url = page.UrlPattern;
-            TwitterCard = page.MetadataTwitterCard.FirstOrDefault()?.Codename ?? "summary_large_image";
-            Description = page.MetadataOgDescription
-                .Cascade(page.MetadataMetaDescription);
-            Image = page.MetadataOgImage.FirstOrDefault() ?? site?.MetadataOgImage.FirstOrDefault();
-            TwitterSite = page.MetadataTwitterSite
-                .Cascade(site?.MetadataTwitterSite);
-            TwitterCreator = page.MetadataTwitterCreator
-                .Cascade(site?.MetadataTwitterCreator);
-            TwitterImage = page.MetadataTwitterImage.FirstOrDefault() ?? Image;
+            Title = page.SocialSharingMetadataOgTitle.Cascade(page.SocialSharingMetadataOgTitle).Cascade(page.Title);
+            Url = page.Slug;
+            TwitterCard = page.SocialSharingMetadataTwitterCard.FirstOrDefault()?.Codename ?? "summary_large_image";
+            Description = page.SocialSharingMetadataOgDescription
+                .Cascade(page.SocialSharingMetadataDescription);
+            Image = page.SocialSharingMetadataOgImage.FirstOrDefault() ?? site?.SocialSharingMetadataOgImage.FirstOrDefault();
+            TwitterSite = page.SocialSharingMetadataTwitterSite
+                .Cascade(site?.SocialSharingMetadataTwitterSite);
+            TwitterCreator = page.SocialSharingMetadataTwitterCreator
+                .Cascade(site?.SocialSharingMetadataTwitterCreator);
+            TwitterImage = page.SocialSharingMetadataTwitterImage.FirstOrDefault() ?? Image;
         }
 
         public string Url { get; }

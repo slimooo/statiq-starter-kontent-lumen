@@ -33,9 +33,9 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                         return new MetadataItems
                         {
                             {FeedKeys.Title, post.Title},
-                            {FeedKeys.Content, post.MetadataMetaDescription},
-                            {FeedKeys.Description, post.MetadataMetaDescription},
-                            {FeedKeys.Image, post.MetadataOgImage.FirstOrDefault()?.Url},// TODO: make that a local image!
+                            {FeedKeys.Content, post.SocialSharingMetadataDescription},
+                            {FeedKeys.Description, post.SocialSharingMetadataDescription},
+                            {FeedKeys.Image, post.SocialSharingMetadataOgImage.FirstOrDefault()?.Url},// TODO: make that a local image!
                             {FeedKeys.Published, post.Date},
                             {FeedKeys.Content, article}
                         };
