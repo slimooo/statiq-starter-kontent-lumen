@@ -1,4 +1,5 @@
 ﻿using Kentico.Kontent.Delivery.Abstractions;
+using Statiq.Common;
 using System.Linq;
 
 namespace Kentico.Kontent.Statiq.Lumen.Models
@@ -8,7 +9,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
         public SocialSharingMetadata(IPageMetadata site, IPageMetadata page)
         {
             Title = page.SocialSharingMetadataOgTitle.Cascade(page.SocialSharingMetadataOgTitle).Cascade(page.Title);
-            Url = page.Slug;
+            Url = page.Slug; //TODO: IExecutionContext.Current.GetLink()
             TwitterCard = page.SocialSharingMetadataTwitterCard.FirstOrDefault()?.Codename ?? "summary_large_image";
             Description = page.SocialSharingMetadataOgDescription
                 .Cascade(page.SocialSharingMetadataDescription);
