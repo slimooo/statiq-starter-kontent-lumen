@@ -23,8 +23,6 @@
   </ItemGroup>
   
   <PropertyGroup>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <UserSecretsId>42813ac8-5d91-4bcb-98f2-7f402adfd9b9</UserSecretsId>
   </PropertyGroup>
 

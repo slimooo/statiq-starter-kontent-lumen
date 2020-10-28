@@ -49,7 +49,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
             );
         }
 
-        private static async Task<IHtmlDocument?> ParseHtml(IDocument document, IExecutionContext context)
+        private static async Task<IHtmlDocument> ParseHtml(IDocument document, IExecutionContext context)
         {
             var parser = new HtmlParser();
             try
