@@ -2,9 +2,10 @@
 {
     public static class MetadataHelpers
     {
-        public static string Cascade(this string preferred, string fallback)
+        public static T Cascade<T>(this T preferred, T fallback) => preferred switch
         {
-            return string.IsNullOrWhiteSpace(preferred) ? fallback : preferred;
-        }
+            string s => string.IsNullOrWhiteSpace(s) ? fallback : preferred,
+            _ => preferred ?? fallback,
+        };
     }
 }

@@ -19,7 +19,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
         {
             Dependencies.Add(nameof(Posts));
             ProcessModules = new ModuleList(
-                // pull documents from other pipelines
+                // Pull documents from other pipelines
                 new ReplaceDocuments(Dependencies.ToArray()),
 
                 // Set metadata for the feeds module

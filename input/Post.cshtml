@@ -48,5 +48,7 @@
 }
 
 @section Head {
-    @{ await Html.RenderPartialAsync("_SocialSharingMetadata", new SocialSharingMetadata(null, article)); }
+    @{ await Html.RenderPartialAsync("_OpenGraph", article);
+        await Html.RenderPartialAsync("_TwitterCard", article);
+    }
 }

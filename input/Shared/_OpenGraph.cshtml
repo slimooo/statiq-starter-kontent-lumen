@@ -1,0 +1,58 @@
+﻿@using Kentico.Kontent.ImageTransformation
+@model IOpenGraph
+@* Open Graph - https://ogp.me/
+    Title, Type, Image, Url are required
+*@
+
+@if (!string.IsNullOrWhiteSpace(Model.OgType) &&
+!string.IsNullOrWhiteSpace(Model.OgSlug) &&
+!string.IsNullOrWhiteSpace(Model.OgTitle) &&
+Model.OgImage.Any())
+{
+    <meta property="og:type" content="@Model.OgType" />
+    <meta property="og:url" content="@IExecutionContext.Current.GetLink($"/TODO/{Model.OgSlug}")" />
+    <meta property="og:title" content="@Model.OgTitle" />
+    @if (!string.IsNullOrWhiteSpace(@Model.OgDescription))
+    {
+        <meta property="og:description" content="@Model.OgDescription" />
+    }
+    @if (Model.OgImage != null)
+    {
+        foreach (var img in Model.OgImage)
+        {
+            var width = 800;
+            var height = 800;
+
+            <meta property="og:image" content="@(new ImageUrlBuilder(new Uri(img.Url)).WithWidth(width).WithHeight(height).WithFormat(ImageFormat.Webp).WithFitMode(ImageFitMode.Crop).Url)" />
+            <meta property="og:image:alt" content="@img.Description" />
+            <meta property="og:image:width" content="@width" />
+            <meta property="og:image:height" content="@height" />
+            <meta property="og:image:type" content="@img.Type" />
+        }
+    }
+    @if (Model is IOpenGraphArticle)
+    {
+        var article = Model as IOpenGraphArticle;
+        @if (article.OgAuthor.Any())
+        {
+            foreach (var author in article.OgAuthor)
+            {
+                <meta property="og:author" content="@author" />
+            }
+        }
+        @if (!string.IsNullOrWhiteSpace(article.OgSection))
+        {
+            <meta property="og:section" content="@article.OgSection" />
+        }
+        @if (article.OgTag.Any())
+        {
+            foreach (var tag in article.OgTag)
+            {
+                <meta property="og:tag" content="@tag" />
+            }
+        }
+        <meta property="og:published_time " content="@article.OgPublishedTime" />
+        <meta property="og:modified_time" content="@article.OgModifiedTime" />
+        <meta property="og:expiration_time" content="@article.OgExpirationTime" />
+    }
+}
