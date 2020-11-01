@@ -15,8 +15,6 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
 
         public string Keywords => SocialSharingMetadataKeywords;
 
-        public string OgSlug => Slug;
-
         public string OgTitle => SocialSharingMetadataOgTitle.Cascade(Title);
 
         public string OgDescription => SocialSharingMetadataDescription.Cascade(Description);

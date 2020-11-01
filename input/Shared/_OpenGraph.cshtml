@@ -5,12 +5,11 @@
 *@
 
 @if (!string.IsNullOrWhiteSpace(Model.OgType) &&
-!string.IsNullOrWhiteSpace(Model.OgSlug) &&
 !string.IsNullOrWhiteSpace(Model.OgTitle) &&
 Model.OgImage.Any())
 {
     <meta property="og:type" content="@Model.OgType" />
-    <meta property="og:url" content="@IExecutionContext.Current.GetLink($"/TODO/{Model.OgSlug}")" />
+    <meta property="og:url" content="@Document.GetLink(true)" />
     <meta property="og:title" content="@Model.OgTitle" />
     @if (!string.IsNullOrWhiteSpace(@Model.OgDescription))
     {
