@@ -11,29 +11,13 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
 
         public Category SelectedCategory => Category.OfType<Category>().First();
 
-        public IEnumerable<IAsset> TeaserImage => SocialSharingMetadataTeaserImage;
+        string ITwitterCard.TwitterCard => TwitterCard?.FirstOrDefault()?.Codename;
 
-        public string Keywords => SocialSharingMetadataKeywords;
+        public string TwitterTitle => OgTitle.Cascade(Title);
 
-        public string OgTitle => SocialSharingMetadataOgTitle.Cascade(Title);
+        public string TwitterDescription => OgDescription.Cascade(Description);
 
-        public string OgDescription => SocialSharingMetadataDescription.Cascade(Description);
-
-        public IEnumerable<IAsset> OgImage => SocialSharingMetadataOgImage;
-
-        public string TwitterCreator => SocialSharingMetadataTwitterCreator;
-
-        public string TwitterSite => SocialSharingMetadataTwitterSite;
-
-        public IAsset TwitterImage => SocialSharingMetadataTwitterImage?.FirstOrDefault().Cascade(OgImage?.FirstOrDefault());
-
-        public string TwitterCard => SocialSharingMetadataTwitterCard?.FirstOrDefault()?.Codename;
-
-        public string TwitterTitle => OgTitle;
-
-        public string TwitterDescription => OgDescription;
-
-        public DateTime OgPublishedTime => System.LastModified; // TODO: new field
+        public DateTime OgPublishedTime => PublishDate.Value;
 
         public DateTime OgModifiedTime => System.LastModified;
 
@@ -42,5 +26,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
         public string OgSection => SelectedCategory.Title;
 
         public IEnumerable<string> OgTag => TagObjects.Select(t => t.Title);
+
+        IAsset ITwitterCard.TwitterImage => TwitterImage?.FirstOrDefault().Cascade(OgImage?.FirstOrDefault());
     }
 }

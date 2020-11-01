@@ -15,39 +15,33 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
         public const string Codename = "article";
         public const string CategoryCodename = "category";
         public const string ContentCodename = "content";
-        public const string DateCodename = "date";
         public const string DescriptionCodename = "description";
+        public const string OgDescriptionCodename = "og__description";
+        public const string OgImageCodename = "og__image";
+        public const string OgTitleCodename = "og__title";
+        public const string PublishDateCodename = "publish_date";
         public const string SlugCodename = "slug";
-        public const string SocialSharingMetadataDescriptionCodename = "social_sharing_metadata__description";
-        public const string SocialSharingMetadataKeywordsCodename = "social_sharing_metadata__keywords";
-        public const string SocialSharingMetadataOgDescriptionCodename = "social_sharing_metadata__og_description";
-        public const string SocialSharingMetadataOgImageCodename = "social_sharing_metadata__og_image";
-        public const string SocialSharingMetadataOgTitleCodename = "social_sharing_metadata__og_title";
-        public const string SocialSharingMetadataTeaserImageCodename = "social_sharing_metadata__teaser_image";
-        public const string SocialSharingMetadataTwitterCardCodename = "social_sharing_metadata__twitter_card";
-        public const string SocialSharingMetadataTwitterCreatorCodename = "social_sharing_metadata__twitter_creator";
-        public const string SocialSharingMetadataTwitterImageCodename = "social_sharing_metadata__twitter_image";
-        public const string SocialSharingMetadataTwitterSiteCodename = "social_sharing_metadata__twitter_site";
         public const string TagsCodename = "tags";
         public const string TitleCodename = "title";
+        public const string TwitterCardCodename = "twitter__card";
+        public const string TwitterCreatorCodename = "twitter__creator";
+        public const string TwitterImageCodename = "twitter__image";
+        public const string TwitterSiteCodename = "twitter__site";
 
         public IEnumerable<object> Category { get; set; }
         public string Content { get; set; }
-        public DateTime? Date { get; set; }
         public string Description { get; set; }
+        public string OgDescription { get; set; }
+        public IEnumerable<IAsset> OgImage { get; set; }
+        public string OgTitle { get; set; }
+        public DateTime? PublishDate { get; set; }
         public string Slug { get; set; }
-        public string SocialSharingMetadataDescription { get; set; }
-        public string SocialSharingMetadataKeywords { get; set; }
-        public string SocialSharingMetadataOgDescription { get; set; }
-        public IEnumerable<IAsset> SocialSharingMetadataOgImage { get; set; }
-        public string SocialSharingMetadataOgTitle { get; set; }
-        public IEnumerable<IAsset> SocialSharingMetadataTeaserImage { get; set; }
-        public IEnumerable<IMultipleChoiceOption> SocialSharingMetadataTwitterCard { get; set; }
-        public string SocialSharingMetadataTwitterCreator { get; set; }
-        public IEnumerable<IAsset> SocialSharingMetadataTwitterImage { get; set; }
-        public string SocialSharingMetadataTwitterSite { get; set; }
         public IContentItemSystemAttributes System { get; set; }
         public IEnumerable<object> Tags { get; set; }
         public string Title { get; set; }
+        public IEnumerable<IMultipleChoiceOption> TwitterCard { get; set; }
+        public string TwitterCreator { get; set; }
+        public IEnumerable<IAsset> TwitterImage { get; set; }
+        public string TwitterSite { get; set; }
     }
 }

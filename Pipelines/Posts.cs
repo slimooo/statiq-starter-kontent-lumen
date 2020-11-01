@@ -17,7 +17,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
             Dependencies.AddRange(nameof(Authors), nameof(SiteMetadatas));
             InputModules = new ModuleList{
                 new Kontent<Article>(deliveryClient)
-                    .OrderBy(Article.DateCodename, SortOrder.Descending)
+                    .OrderBy(Article.PublishDateCodename, SortOrder.Descending)
                     .WithQuery(new DepthParameter(1), new IncludeTotalCountParameter()),
                 new SetMetadata(nameof(Category), Config.FromDocument((doc, ctx) =>
                 {
