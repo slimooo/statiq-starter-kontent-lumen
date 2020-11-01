@@ -54,4 +54,23 @@ Model.OgImage.Any())
         <meta property="article:modified_time" content="@article.OgModifiedTime.ToString("o")" />
         <meta property="article:expiration_time" content="@article.OgExpirationTime.ToString("o")" />
     }
+    else if (Model is IOpenGraphProfile profile)
+    {
+        @if (!string.IsNullOrWhiteSpace(profile.FirstName))
+        {
+            <meta property="profile:first_name" content="@profile.FirstName" />
+        }
+        @if (!string.IsNullOrWhiteSpace(profile.LastName))
+        {
+            <meta property="profile:last_name" content="@profile.LastName" />
+        }
+        @if (!string.IsNullOrWhiteSpace(profile.UserName))
+        {
+            <meta property="profile:username" content="@profile.UserName" />
+        }
+        @if (!string.IsNullOrWhiteSpace(profile.Gender))
+        {
+            <meta property="profile:gender" content="@profile.Gender" />
+        }
+    }
 }
