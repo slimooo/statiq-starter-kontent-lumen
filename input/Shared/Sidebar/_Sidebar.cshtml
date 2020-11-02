@@ -5,6 +5,8 @@
         @await Html.PartialAsync("Shared/Sidebar/_Author", Model)
         @await Html.PartialAsync("Shared/Sidebar/_Menu", Model.Homepage.MenuItems, new ViewDataDictionary(ViewData) { { nameof(Model.ActiveMenuItem), Model.ActiveMenuItem } })
         @await Html.PartialAsync("Shared/Sidebar/_Contacts", Model.Contacts)
-        @await Html.PartialAsync("Shared/Sidebar/_Copyright", Model.Metadata.Copyright)
+        <div class="sidebar__copyright" data-kontent-item-id="@Model.Metadata.System.Id" data-kontent-element-codename="@SiteMetadata.CopyrightCodename">
+            @Model.Metadata.Copyright
+        </div>
     </div>
 </div>
