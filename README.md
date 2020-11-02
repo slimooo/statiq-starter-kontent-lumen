@@ -11,6 +11,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 ## Features
 
 + Content from [Kontent](http://kontent.ai/) headless CMS.
++ [Kontent Web Spotlight](https://docs.kontent.ai/tutorials/set-up-kontent/set-up-your-project/web-spotlight)
 + Beautiful typography inspired by [matejlatin/Gutenberg](https://github.com/matejlatin/Gutenberg).
 + [Mobile-First](https://medium.com/@mrmrs_/mobile-first-css-48bc4cc3f60f) approach in development.
 + Stylesheet built using SASS and [BEM](http://getbem.com/naming/)-Style naming.
@@ -61,10 +62,19 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 ### Production deployment to GitHub pages
 - Enable GitHub actions in your repo
 - Copy the [`.github/workflows/dotnet-core.yml`](https://github.com/petrsvihlik/statiq-starter-kontent-lumen/blob/master/.github/workflows/dotnet-core.yml) to your project
-- Go to the repository secrets and set `LinkRoot` to the relative path of your project (e.g. `/statiq-starter-kontent-lumen`) - this is to ensure that all links work properly when deployed to a subfolder
+- Go to the repository secrets and set:
+  - [`LinkRoot`](https://statiq.dev/framework/configuration/settings) to the relative path of your project (e.g. `/statiq-starter-kontent-lumen`) - this is to ensure that all links work properly when deployed to a subfolder
+  - [`Host`](https://statiq.dev/framework/configuration/settings) to the domain of your project (e.g. `domain.tld`) - this is to ensure that absolute links are generated where required
 
 ## Configuring features
-- Google Tag Manager -> just add `"TagManagerId": "GTM-XXXXXXX"` to appsettings.json
+
+### Google Tag Manager
+-> just add `"TagManagerId": "GTM-XXXXXXX"` to appsettings.json
+
+### [Web Spotlight](https://webspotlight.kontent.ai/)
+- Add [Web Spotlight](https://kontent.ai/pricing) to your current plan
+- Start editing!
+![Web Spotlight Screenshot](https://i.imgur.com/0WykmeX.png)
 
 ## Original work
 This template is licensed under the [MIT](LICENSE) license and the credits for the [original work](https://github.com/alxshelepenok/gatsby-starter-lumen) on the template go to [Alexander Shelepenok](https://github.com/alxshelepenok).
