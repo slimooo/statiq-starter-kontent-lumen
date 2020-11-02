@@ -35,7 +35,7 @@
     @RenderSection("Head", required: false)
 </head>
 
-<body id="@(ViewBag.PageType)">
+<body id="@(ViewBag.PageType)" data-kontent-project-id="@(((IConfiguration)IExecutionContext.Current.Settings).GetValue<string>("DeliveryOptions:ProjectId"))" data-kontent-language-codename="en-US">
     @if (!string.IsNullOrWhiteSpace(ViewBag.TagManagerId))
     {
         <!-- Google Tag Manager (noscript) -->
