@@ -6,11 +6,11 @@ using System.Linq;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
-    public class SiteMap : Pipeline
+    public class SiteMapPipeline : Pipeline
     {
-        public SiteMap()
+        public SiteMapPipeline()
         {
-            Dependencies.AddRange(nameof(Posts), nameof(Home));
+            Dependencies.AddRange(nameof(PostsPipeline), nameof(HomePipeline));
             ProcessModules = new ModuleList(
                 // pull documents from other pipelines
                 new ReplaceDocuments(Dependencies.ToArray()),

@@ -3,9 +3,9 @@ using Statiq.Core;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
-    public class CopyAssets : Pipeline
+    public class CopyAssetsPipeline : Pipeline
     {
-        public CopyAssets()
+        public CopyAssetsPipeline()
         {
             InputModules = new ModuleList
             {

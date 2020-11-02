@@ -11,14 +11,14 @@ using System.Linq;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
-    public class Categories : Pipeline
+    public class CategoriesPipeline : Pipeline
     {
-        public Categories(IDeliveryClient deliveryClient)
+        public CategoriesPipeline(IDeliveryClient deliveryClient)
         {
-            Dependencies.AddRange(nameof(Posts), nameof(HomepagePipeline),nameof(SiteMetadataPipeline));
+            Dependencies.AddRange(nameof(PostsPipeline), nameof(HomepagePipeline),nameof(SiteMetadataPipeline));
 
             ProcessModules = new ModuleList {
-                new ReplaceDocuments(nameof(Posts)), // Get docs from a different pipeline
+                new ReplaceDocuments(nameof(PostsPipeline)), // Get docs from a different pipeline
                 new GroupDocuments(nameof(Category)), // Group docs by the category name
                 new SetMetadata(nameof(Article.SelectedCategory), Config.FromDocument(doc => doc.GetChildren().FirstOrDefault().Get<Category>(nameof(Article.SelectedCategory)))), // Copy group metadata to the group parent page
                 new ForEachDocument{ // For each category
@@ -35,7 +35,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                                                 new SidebarViewModel(
                                                 context.Outputs.FromPipeline(nameof(HomepagePipeline)).Select(x => x.AsKontent<Homepage>()).FirstOrDefault(),
                                                 context.Outputs.FromPipeline(nameof(SiteMetadataPipeline)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
-                                                false, null), category.Title);
+                                                false, null), category);
                                 return model;
                             }
                             )),

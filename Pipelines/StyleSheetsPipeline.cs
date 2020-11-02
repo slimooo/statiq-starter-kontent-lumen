@@ -4,9 +4,9 @@ using Statiq.Sass;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
-    public class StyleSheets : Pipeline
+    public class StyleSheetsPipeline : Pipeline
     {
-        public StyleSheets()
+        public StyleSheetsPipeline()
         {
             InputModules = new ModuleList {
                 new ReadFiles(pattern: "assets/scss/**/{!_,}*.scss"),

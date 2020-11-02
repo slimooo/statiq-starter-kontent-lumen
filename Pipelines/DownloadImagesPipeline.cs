@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
-    public class DownloadImages : Pipeline
+    public class DownloadImagesPipeline : Pipeline
     {
-        public DownloadImages()
+        public DownloadImagesPipeline()
         {
-            Dependencies.AddRange(nameof(Posts), nameof(Home));
+            Dependencies.AddRange(nameof(PostsPipeline), nameof(HomePipeline));
             PostProcessModules = new ModuleList(
                 // pull documents from other pipelines
                 new ReplaceDocuments(Dependencies.ToArray()),

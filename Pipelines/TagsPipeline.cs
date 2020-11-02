@@ -11,11 +11,11 @@ using System.Linq;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
-    public class Tags : Pipeline
+    public class TagsPipeline : Pipeline
     {
-        public Tags(IDeliveryClient deliveryClient)
+        public TagsPipeline(IDeliveryClient deliveryClient)
         {
-            Dependencies.AddRange(nameof(Posts), nameof(HomepagePipeline), nameof(SiteMetadataPipeline));
+            Dependencies.AddRange(nameof(PostsPipeline), nameof(HomepagePipeline), nameof(SiteMetadataPipeline));
 
             InputModules = new ModuleList
             {
@@ -25,7 +25,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
             ProcessModules = new ModuleList {
                     new MergeDocuments()
                     {
-                        new ReplaceDocuments(nameof(Posts)),
+                        new ReplaceDocuments(nameof(PostsPipeline)),
                         // Get docs from a different pipeline
                         new GroupDocuments(nameof(Tag)), // Group docs by the tag name
                     }.Reverse(),
@@ -44,7 +44,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                                                     new SidebarViewModel(
                                                     context.Outputs.FromPipeline(nameof(HomepagePipeline)).Select(x => x.AsKontent<Homepage>()).FirstOrDefault(),
                                                     context.Outputs.FromPipeline(nameof(SiteMetadataPipeline)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
-                                                    false, null), tag.Title);
+                                                    false, null), tag);
                                     return model;
                                 })),
                         new SetDestination(Config.FromDocument((doc, ctx) => Filename(doc, groupDoc))) // Set output

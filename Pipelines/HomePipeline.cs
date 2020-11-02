@@ -10,14 +10,14 @@ using System.Linq;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
-    public class Home : Pipeline
+    public class HomePipeline : Pipeline
     {
-        public Home(IDeliveryClient deliveryClient)
+        public HomePipeline(IDeliveryClient deliveryClient)
         {
-            Dependencies.AddRange(nameof(Posts), nameof(HomepagePipeline), nameof(SiteMetadataPipeline));
+            Dependencies.AddRange(nameof(PostsPipeline), nameof(HomepagePipeline), nameof(SiteMetadataPipeline));
             ProcessModules = new ModuleList(
                 // pull documents from other pipelines
-                new ReplaceDocuments(nameof(Posts)),
+                new ReplaceDocuments(nameof(PostsPipeline)),
                 new PaginateDocuments(4),
                 new SetDestination(Config.FromDocument((doc, ctx) => Filename(doc))),
                 new MergeContent(new ReadFiles("Index.cshtml")),

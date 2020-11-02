@@ -8,17 +8,22 @@
 
         public SidebarViewModel Sidebar { get; private set; }
 
-        public HomeViewModel(PagedContent<Article> articles, SidebarViewModel sidebar, string title = null) : base(sidebar.Metadata)
+        public ITitleProvider TitleProvider { get; }
+
+        public HomeViewModel(PagedContent<Article> articles, SidebarViewModel sidebar, ITitleProvider titleProvider = null) : this(sidebar, titleProvider)
         {
             Articles = articles;
-            Sidebar = sidebar;
-            Page = new Page { Title = title };
         }
 
-        public HomeViewModel(Page page, SidebarViewModel sidebar) : base(sidebar.Metadata)
+        public HomeViewModel(Page page, SidebarViewModel sidebar) : this(sidebar, page)
         {
             Page = page;
+        }
+
+        private HomeViewModel(SidebarViewModel sidebar, ITitleProvider titleProvider) : base(sidebar.Metadata)
+        {
             Sidebar = sidebar;
+            TitleProvider = titleProvider;
         }
     }
 }

@@ -2,31 +2,34 @@
 @{
     ViewData["SiteMetadata"] = Model.Metadata;
     ViewData["Author"] = Model.Author;
-    if (Model.Page.Title != null)
+    if (Model.TitleProvider != null)
     {
-        ViewBag.Title = $"{Model.Page.Title} - {Model.Metadata.Title}";
+        ViewBag.Title = $"{Model.TitleProvider.Title} - {Model.Metadata.Title}";
     }
 }
 @await Html.PartialAsync("Shared/Sidebar/_Sidebar", Model.Sidebar)
 <div class="content">
     <div class="content__inner">
         <div class="page">
-            @if (!string.IsNullOrWhiteSpace(Model.Page.Title))
+            @if (Model.TitleProvider != null)
             {
-                <h1 class="page__title">
-                    @Model.Page.Title
+                <h1 class="page__title" data-kontent-item-id="@Model.TitleProvider.System.Id" data-kontent-element-codename="@Model.TitleProvider.ElementCodename">
+                    @Model.TitleProvider.Title
                 </h1>
             }
-        <div class="page__body">
-            @if (Model.Articles != null)
-            {
-                @await Html.PartialAsync("Shared/_Posts", Model.Articles);
-            }
-            else
-            {
-                @Html.Raw(Model.Page.Body)
-            }
-        </div>
+            <div class="page__body">
+                @if (Model.Articles != null)
+                {
+                    <div class="page__body">
+                        @await Html.PartialAsync("Shared/_Posts", Model.Articles);
+                    </div>
+                }
+                else
+                {
+                    <div class="page__body" data-kontent-item-id="@Model.Page.System.Id" data-kontent-element-codename="@Page.BodyCodename">
+                        @Html.Raw(Model.Page.Body)
+                    </div>
+                }
+            </div>
         </div>
     </div>
-</div>

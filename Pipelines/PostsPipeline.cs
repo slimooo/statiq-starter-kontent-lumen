@@ -10,9 +10,9 @@ using System.Linq;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
-    public class Posts : Pipeline
+    public class PostsPipeline : Pipeline
     {
-        public Posts(IDeliveryClient deliveryClient)
+        public PostsPipeline(IDeliveryClient deliveryClient)
         {
             Dependencies.AddRange(nameof(SiteMetadataPipeline));
             InputModules = new ModuleList{

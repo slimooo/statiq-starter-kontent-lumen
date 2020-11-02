@@ -11,9 +11,9 @@ using System.Linq;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
-    public class Pages : Pipeline
+    public class PagesPipeline : Pipeline
     {
-        public Pages(IDeliveryClient deliveryClient)
+        public PagesPipeline(IDeliveryClient deliveryClient)
         {
             Dependencies.AddRange(nameof(HomepagePipeline), nameof(SiteMetadataPipeline));
             InputModules = new ModuleList{

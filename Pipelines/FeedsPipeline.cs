@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 
 namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
-    public class Feeds : Pipeline
+    public class FeedsPipeline : Pipeline
     {
-        public Feeds()
+        public FeedsPipeline()
         {
-            Dependencies.Add(nameof(Posts));
+            Dependencies.Add(nameof(PostsPipeline));
             ProcessModules = new ModuleList(
                 // Pull documents from other pipelines
                 new ReplaceDocuments(Dependencies.ToArray()),
