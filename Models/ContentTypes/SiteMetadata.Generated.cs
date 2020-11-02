@@ -13,10 +13,12 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
     public partial class SiteMetadata
     {
         public const string Codename = "site_metadata";
+        public const string AuthorCodename = "author";
         public const string CopyrightCodename = "copyright";
         public const string SubtitleCodename = "subtitle";
         public const string TitleCodename = "title";
 
+        public IEnumerable<object> Author { get; set; }
         public string Copyright { get; set; }
         public string Subtitle { get; set; }
         public IContentItemSystemAttributes System { get; set; }

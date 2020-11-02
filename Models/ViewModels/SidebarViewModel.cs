@@ -13,9 +13,9 @@ namespace Kentico.Kontent.Statiq.Lumen.Models.ViewModels
 
         public bool IsIndex { get; private set; }
 
-        public SidebarViewModel(Menu menu, Author author, SiteMetadata metadata, bool isIndex, string activeMenuItem) : base(author, metadata)
+        public SidebarViewModel(Menu menu, SiteMetadata metadata, bool isIndex, string activeMenuItem) : base(metadata)
         {
-            Contacts = author.Contacts.OfType<Contact>();
+            Contacts = metadata.SiteAuthor.Contacts.OfType<Contact>();
             Menu = menu;
             IsIndex = isIndex;
             ActiveMenuItem = activeMenuItem;

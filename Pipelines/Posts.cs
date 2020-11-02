@@ -14,7 +14,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
     {
         public Posts(IDeliveryClient deliveryClient)
         {
-            Dependencies.AddRange(nameof(Authors), nameof(SiteMetadatas));
+            Dependencies.AddRange(nameof(SiteMetadatas));
             InputModules = new ModuleList{
                 new Kontent<Article>(deliveryClient)
                     .OrderBy(Article.PublishDateCodename, SortOrder.Descending)
@@ -47,7 +47,6 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                 new RenderRazor()
                  .WithModel(Config.FromDocument((document, context) =>
                  new PostViewModel(document.AsKontent<Article>(),
-                               context.Outputs.FromPipeline(nameof(Authors)).Select(x => x.AsKontent<Author>()).FirstOrDefault(),
                                context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault()))),
                 new KontentImageProcessor()
             };

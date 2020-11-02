@@ -2,9 +2,9 @@
 {
     public abstract class ViewModelBase
     {
-        protected ViewModelBase(Author author, SiteMetadata metadata)
+        protected ViewModelBase(SiteMetadata metadata)
         {
-            Author = author;
+            Author = metadata.SiteAuthor;
             Metadata = metadata;
         }
 

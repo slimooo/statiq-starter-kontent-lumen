@@ -15,7 +15,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
     {
         public Categories(IDeliveryClient deliveryClient)
         {
-            Dependencies.AddRange(nameof(Posts), nameof(MenuItems), nameof(Authors), nameof(SiteMetadatas));
+            Dependencies.AddRange(nameof(Posts), nameof(MenuItems),nameof(SiteMetadatas));
 
             ProcessModules = new ModuleList {
                 new ReplaceDocuments(nameof(Posts)), // Get docs from a different pipeline
@@ -34,7 +34,6 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                                 var model = new HomeViewModel(document.AsPagedKontent<Article>(),
                                                 new SidebarViewModel(
                                                 context.Outputs.FromPipeline(nameof(MenuItems)).Select(x => x.AsKontent<Menu>()).FirstOrDefault(),
-                                                context.Outputs.FromPipeline(nameof(Authors)).Select(x => x.AsKontent<Author>()).FirstOrDefault(),
                                                 context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
                                                 false, null), category.Title);
                                 return model;

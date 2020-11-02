@@ -6,7 +6,7 @@
 
         public string Content { get; private set; }
 
-        public PageViewModel(string title, string content, SidebarViewModel sidebar) : base(sidebar.Author, sidebar.Metadata)
+        public PageViewModel(string title, string content, SidebarViewModel sidebar) : base(sidebar.Metadata)
         {
             Title = title;
             Content = content;

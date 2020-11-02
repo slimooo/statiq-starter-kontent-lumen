@@ -7,6 +7,8 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
 {
     public partial class Article : ITwitterCard, IOpenGraphArticle
     {
+        public Author ArticleAuthor => Author.OfType<Author>().FirstOrDefault();
+
         public IEnumerable<Tag> TagObjects => Tags.OfType<Tag>();
 
         public Category SelectedCategory => Category.OfType<Category>().First();
@@ -21,7 +23,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
 
         public DateTime OgModifiedTime => System.LastModified;
 
-        public IEnumerable<string> OgAuthor => new List<string> { "John Doe" }; // TODO: new field
+        public IEnumerable<string> OgAuthor => Author.OfType<Author>().Select(a => a.Name);
 
         public string OgSection => SelectedCategory.Title;
 
