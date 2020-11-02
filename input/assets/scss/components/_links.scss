@@ -30,13 +30,13 @@
 
                 & i {
                     font-size: 14px;
-                    color: lighten($color-base, 20%);
+                    color: $color-base;
                 }
 
                 &:hover,
                 &:focus {
                     & i {
-                        color: $color-base;
+                        color: $color-primary;
                     }
                 }
             }
