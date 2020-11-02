@@ -13,8 +13,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
             {typeof(Author), "author"},
             {typeof(Category), "category"},
             {typeof(Contact), "contact"},
-            {typeof(Menu), "menu"},
-            {typeof(MenuItem), "menu_item"},
+            {typeof(Homepage), "homepage"},
             {typeof(Page), "page"},
             {typeof(SiteMetadata), "site_metadata"},
             {typeof(Tag), "tag"}

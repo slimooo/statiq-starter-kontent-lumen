@@ -10,12 +10,16 @@ using Kentico.Kontent.Delivery.Abstractions;
 
 namespace Kentico.Kontent.Statiq.Lumen.Models
 {
-    public partial class Menu
+    public partial class Homepage
     {
-        public const string Codename = "menu";
-        public const string MenuItemsCodename = "menu_items";
+        public const string Codename = "homepage";
+        public const string ContentCodename = "content";
+        public const string SubpagesCodename = "subpages";
+        public const string TitleCodename = "title";
 
-        public IEnumerable<object> MenuItems { get; set; }
+        public IEnumerable<object> Content { get; set; }
+        public IEnumerable<object> Subpages { get; set; }
         public IContentItemSystemAttributes System { get; set; }
+        public string Title { get; set; }
     }
 }

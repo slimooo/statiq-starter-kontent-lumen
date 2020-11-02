@@ -1,12 +1,12 @@
 ﻿@using Kentico.Kontent.Statiq.Lumen.Models
-@model IEnumerable<MenuItem>
+@model IEnumerable<Page>
 
 <nav class="menu">
     <ul class="menu__list">
         @foreach (var item in Model)
         {
             <li class="menu__list-item">
-                <a href="@IExecutionContext.Current.GetLink(string.IsNullOrEmpty(item.Slug) ? "/" : $"pages/{item.Slug}")"  class="menu__list-item-link @(item.Slug == ViewBag.ActiveMenuItem ? " active--exact  active" : "")">@item.Label</a>
+                <a href="@IExecutionContext.Current.GetLink(item.Url == "/" ? "/" : $"pages/{item.Url}")"  class="menu__list-item-link @(item.Url == ViewBag.ActiveMenuItem ? " active--exact  active" : "")">@item.Title</a>
             </li>
         }
     </ul>

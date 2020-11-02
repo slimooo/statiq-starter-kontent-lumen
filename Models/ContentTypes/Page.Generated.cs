@@ -15,11 +15,17 @@ namespace Kentico.Kontent.Statiq.Lumen.Models
         public const string Codename = "page";
         public const string BodyCodename = "body";
         public const string MetaDescriptionCodename = "meta_description";
+        public const string ShowInNavigationCodename = "show_in_navigation";
+        public const string SubpagesCodename = "subpages";
         public const string TitleCodename = "title";
+        public const string UrlCodename = "url";
 
         public string Body { get; set; }
         public string MetaDescription { get; set; }
+        public IEnumerable<IMultipleChoiceOption> ShowInNavigation { get; set; }
+        public IEnumerable<object> Subpages { get; set; }
         public IContentItemSystemAttributes System { get; set; }
         public string Title { get; set; }
+        public string Url { get; set; }
     }
 }

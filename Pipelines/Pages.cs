@@ -15,11 +15,11 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
     {
         public Pages(IDeliveryClient deliveryClient)
         {
-            Dependencies.AddRange(nameof(MenuItems), nameof(SiteMetadatas));
+            Dependencies.AddRange(nameof(HomepagePipeline), nameof(SiteMetadataPipeline));
             InputModules = new ModuleList{
-                new Kontent<MenuItem>(deliveryClient)
-                    .WithQuery(new IncludeTotalCountParameter(), new NotEmptyFilter("elements.content")),
-                new SetDestination(Config.FromDocument((doc, ctx)  => new NormalizedPath($"pages/{doc.AsKontent<MenuItem>().Slug}/index.html" ))),
+                new Kontent<Page>(deliveryClient)
+                    .WithQuery(new IncludeTotalCountParameter(), new NotEmptyFilter("elements.body")),
+                new SetDestination(Config.FromDocument((doc, ctx)  => new NormalizedPath($"pages/{doc.AsKontent<Page>().Url}/index.html" ))),
             };
 
             ProcessModules = new ModuleList {
@@ -27,12 +27,12 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                 new RenderRazor()
                  .WithModel(Config.FromDocument((document, context) =>
                  {
-                    var menuItem = document.AsKontent<MenuItem>();
-                    var model = new HomeViewModel(menuItem.Page,
+                    var menuItem = document.AsKontent<Page>();
+                    var model = new HomeViewModel(menuItem,
                                     new SidebarViewModel(
-                                    context.Outputs.FromPipeline(nameof(MenuItems)).Select(x => x.AsKontent<Menu>()).FirstOrDefault(),
-                                    context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
-                                    false, menuItem.Slug));
+                                    context.Outputs.FromPipeline(nameof(HomepagePipeline)).Select(x => x.AsKontent<Homepage>()).FirstOrDefault(),
+                                    context.Outputs.FromPipeline(nameof(SiteMetadataPipeline)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
+                                    false, menuItem.Url));
                     return model;
                  }
                  ))/*,

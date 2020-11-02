@@ -3,8 +3,8 @@ using System.Linq;
 
 namespace Kentico.Kontent.Statiq.Lumen.Models
 {
-    public partial class Menu
+    public partial class Homepage
     {
-        public IEnumerable<MenuItem> MenuItemsTyped => MenuItems.OfType<MenuItem>();
+        public IEnumerable<Page> MenuItems => Subpages.OfType<Page>();
     }
 }

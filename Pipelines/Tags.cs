@@ -15,7 +15,7 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
     {
         public Tags(IDeliveryClient deliveryClient)
         {
-            Dependencies.AddRange(nameof(Posts), nameof(MenuItems), nameof(SiteMetadatas));
+            Dependencies.AddRange(nameof(Posts), nameof(HomepagePipeline), nameof(SiteMetadataPipeline));
 
             InputModules = new ModuleList
             {
@@ -42,8 +42,8 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
                                     var tag = groupDoc.Get<Tag>("SelectedTag");
                                     var model = new HomeViewModel(document.AsPagedKontent<Article>(),
                                                     new SidebarViewModel(
-                                                    context.Outputs.FromPipeline(nameof(MenuItems)).Select(x => x.AsKontent<Menu>()).FirstOrDefault(),
-                                                    context.Outputs.FromPipeline(nameof(SiteMetadatas)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
+                                                    context.Outputs.FromPipeline(nameof(HomepagePipeline)).Select(x => x.AsKontent<Homepage>()).FirstOrDefault(),
+                                                    context.Outputs.FromPipeline(nameof(SiteMetadataPipeline)).Select(x => x.AsKontent<SiteMetadata>()).FirstOrDefault(),
                                                     false, null), tag.Title);
                                     return model;
                                 })),
