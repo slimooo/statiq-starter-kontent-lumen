@@ -7,10 +7,10 @@ namespace Kentico.Kontent.Statiq.Lumen.Pipelines
 {
     public abstract class LoadDataPipeLine<TContentModel> : Pipeline where TContentModel : class
     {
-        public LoadDataPipeLine(IDeliveryClient deliveryClient)
+        public LoadDataPipeLine(IDeliveryClient deliveryClient, params IQueryParameter[] parameters)
         {
             InputModules = new ModuleList{
-                new Kontent<TContentModel>(deliveryClient)
+                new Kontent<TContentModel>(deliveryClient).WithQuery(parameters)
             };
         }
     }
