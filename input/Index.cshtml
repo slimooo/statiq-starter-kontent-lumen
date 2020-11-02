@@ -21,7 +21,7 @@
                 @if (Model.Articles != null)
                 {
                     <div class="page__body">
-                        @await Html.PartialAsync("Shared/_Posts", Model.Articles);
+                        @await Html.PartialAsync("Shared/_Posts", Model.Articles)
                     </div>
                 }
                 else
@@ -33,3 +33,4 @@
             </div>
         </div>
     </div>
+</div>
