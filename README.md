@@ -18,6 +18,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 + Syntax highlighting in code blocks.
 + Archive organized by tags and categories.
 + Automatic Sitemap generation.
++ Open Graph & Twitter Cards support
 + RSS/Atom support out of the box
 + Google Tag Manager support
 + Automatic Dark Mode
