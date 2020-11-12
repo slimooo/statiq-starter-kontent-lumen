@@ -3,8 +3,8 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
-  #pull_request:
-   # branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -41,6 +41,7 @@ jobs:
         name: "Site"
         path: ./output     
     - name: Deploy 🚀
+      if: github.ref == 'refs/heads/master'
       uses: JamesIves/github-pages-deploy-action@3.6.2
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
