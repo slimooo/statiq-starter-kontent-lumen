@@ -43,7 +43,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
     ```sh
     npm i -g @kentico/kontent-backup-manager
 
-    kbm --action=restore --projectId=<Project ID> --apiKey=<Management API key> --zipFilename=kontent-backup
+    kbm --action=restore --projectId=<Project ID> --apiKey=<Management API key> --zipFilename=content
     ```
 
     > Alternatively, you can use the [Template Manager UI](https://kentico.github.io/kontent-template-manager/import) for importing the content.
