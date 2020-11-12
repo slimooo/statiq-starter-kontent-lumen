@@ -1,10 +1,17 @@
-## Description
+### Motivation
 
-<!-- Write a brief description of the changes introduced by this PR -->
+Which issue does this fix? Fixes #`issue number`
 
-## Related Issues
+If no issue exists, what is the fix or new feature? Were there any reasons to fix/implement things that are not obvious?
 
-<!--
-  Link to the issue that is fixed by this PR (if there is one)
-  e.g. Fixes #1234, Addresses #1234, Related to #1234, etc.
--->
+### Checklist
+
+- [ ] Code follows coding conventions held in this repo
+- [ ] Automated tests have been added
+- [ ] Tests are passing
+- [ ] Docs have been updated (if applicable)
+- [ ] Temporary settings (e.g. variables used during development and testing) have been reverted to defaults
+
+### How to test
+
+If manual testing is required, what are the steps?
