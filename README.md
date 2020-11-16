@@ -41,7 +41,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 
 🎊🎉 **You are now ready to explore the code base!**
 
-> Content is loaded from the shared Kentico Kontent project, if you want to use your own clone of the project so that you could try to experiment with the Kontent as well, follow to the next section.
+> By default, the content is loaded from a shared Kentico Kontent project. If you want to use your own clone of the project so that you can customize it and experiment with Kontent, continue to the next section.
 
 ### Create a content source
 
