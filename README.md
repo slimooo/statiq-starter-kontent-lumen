@@ -31,7 +31,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 
 ### Clone the codebase
 
-1. Click the ["Use this template"](https://github.com/petrsvihlik/statiq-starter-kontent-lumen/generate) button to [create your own repository from this template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
+1. Click the ["Use this template"](https://github.com/Kontent/statiq-starter-kontent-lumen/generate) button to [create your own repository from this template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
 
 ### Running locally
 
@@ -69,7 +69,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 ### Production deployment to GitHub pages
 
 - Enable GitHub actions in your repo
-- Copy the [`.github/workflows/dotnet-core.yml`](https://github.com/petrsvihlik/statiq-starter-kontent-lumen/blob/master/.github/workflows/dotnet-core.yml) to your project
+- Copy the [`.github/workflows/dotnet-core.yml`](https://github.com/Kontent/statiq-starter-kontent-lumen/blob/master/.github/workflows/dotnet-core.yml) to your project
 - Go to the repository secrets and set:
   - [`LinkRoot`](https://statiq.dev/framework/configuration/settings) to the relative path of your project (e.g. `/statiq-starter-kontent-lumen`) - this is to ensure that all links work properly when deployed to a subfolder
   - [`Host`](https://statiq.dev/framework/configuration/settings) to the domain of your project (e.g. `domain.tld`) - this is to ensure that absolute links are generated where required
