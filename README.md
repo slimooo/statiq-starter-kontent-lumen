@@ -1,5 +1,6 @@
 [![.NET Core](https://github.com/Kentico/statiq-starter-kontent-lumen/workflows/.NET%20Core/badge.svg)](https://github.com/Kentico/statiq-starter-kontent-lumen/actions)
 [![Live Demo](https://img.shields.io/badge/Live-DEMO-brightgreen.svg?logo=github&logoColor=white)](https://kentico.github.io/statiq-starter-kontent-lumen)
+[![Live demo](https://img.shields.io/badge/Live-Demo-00C7B7.svg?logo=netlify)](https://statiq-starter-kontent-lumen.netlify.app/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7ca4dcc3-fc66-4b1e-9684-ab5e82f54e3c/deploy-status)](https://app.netlify.com/sites/statiq-starter-kontent-lumen/deploys)
 
 # Kentico Kontent 💖 Statiq - Lumen Starter
@@ -69,6 +70,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 
 ### Production deployment
 #### Netlify
+This template contains [default configuration](https://github.com/Kentico/statiq-starter-kontent-lumen/blob/master/netlify.toml) for deployment to Netlify. Just click the button below and deploy in seconds!
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Kentico/statiq-starter-kontent-lumen)
 
 #### GitHub pages
