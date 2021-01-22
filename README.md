@@ -67,7 +67,11 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 
 🚀 **You are now ready to use the site with your own Kentico Kontent project as data source!**
 
-### Production deployment to GitHub pages
+### Production deployment
+#### Netlify
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Kentico/statiq-starter-kontent-lumen)
+
+#### GitHub pages
 
 - Enable GitHub actions in your repo
 - Copy the [`.github/workflows/dotnet-core.yml`](https://github.com/Kontent/statiq-starter-kontent-lumen/blob/master/.github/workflows/dotnet-core.yml) to your project
