@@ -27,7 +27,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 
 ### Requirements
 
-- [.NET Core 3.1](https://dotnet.microsoft.com/download)
+- [.NET 5.0](https://dotnet.microsoft.com/download)
 
 ### Clone the codebase
 
