@@ -1,5 +1,6 @@
 [![.NET Core](https://github.com/Kentico/statiq-starter-kontent-lumen/workflows/.NET%20Core/badge.svg)](https://github.com/Kentico/statiq-starter-kontent-lumen/actions)
 [![Live Demo](https://img.shields.io/badge/Live-DEMO-brightgreen.svg?logo=github&logoColor=white)](https://kentico.github.io/statiq-starter-kontent-lumen)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7ca4dcc3-fc66-4b1e-9684-ab5e82f54e3c/deploy-status)](https://app.netlify.com/sites/statiq-starter-kontent-lumen/deploys)
 
 # Kentico Kontent 💖 Statiq - Lumen Starter
 
