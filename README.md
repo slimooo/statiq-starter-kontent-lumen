@@ -3,9 +3,9 @@
 [![Live demo](https://img.shields.io/badge/Live-Demo-00C7B7.svg?logo=netlify)](https://statiq-starter-kontent-lumen.netlify.app/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b0ddaf97-1629-4d05-b8b0-c10e7241fc56/deploy-status)](https://app.netlify.com/sites/statiq-starter-kontent-lumen/deploys)
 
-# Kentico Kontent 💖 Statiq - Lumen Starter
+# Kontent by Kentico 💖 Statiq - Lumen Starter
 
-Lumen is a minimal, lightweight, and mobile-first starter for creating blogs using Statiq and Kentico Kontent.
+Lumen is a minimal, lightweight, and mobile-first starter for creating blogs using Statiq and Kontent by Kentico.
 
 ---
 ![Lumen - screenshot](https://i.imgur.com/vLBpkl6.png)
