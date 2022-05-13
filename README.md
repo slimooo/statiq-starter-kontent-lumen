@@ -13,7 +13,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 ## Features
 
 - Content from [Kontent](http://kontent.ai/) headless CMS.
-- [Kontent Web Spotlight](https://docs.kontent.ai/tutorials/set-up-kontent/set-up-your-project/web-spotlight)
+- [Kontent Web Spotlight](https://kontent.ai/learn/tutorials/set-up-kontent/set-up-your-project/web-spotlight)
 - Beautiful typography inspired by [matejlatin/Gutenberg](https://github.com/matejlatin/Gutenberg).
 - [Mobile-First](https://medium.com/@mrmrs_/mobile-first-css-48bc4cc3f60f) approach in development.
 - Stylesheet built using SASS and [BEM](http://getbem.com/naming/)-Style naming.
@@ -47,21 +47,19 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 
 ### Create a content source
 
-1. Go to [app.kontent.ai](https://app.kontent.ai) and [create an empty project](https://docs.kontent.ai/tutorials/set-up-kontent/projects/manage-projects#a-creating-projects)
+1. Go to [app.kontent.ai](https://app.kontent.ai) and [create an empty project](https://kontent.ai/learn/tutorials/manage-kontent/projects/manage-projects#a-create-projects)
 1. Go to the "Project Settings", select API keys and copy the following keys for further reference
     - Project ID
     - Management API key
-1. Use the [Template Manager UI](https://kentico.github.io/kontent-template-manager/import) for importing the content from [`content.zip`](./content.zip) file and API keys from previous step. Check *Publish language variants after import* option before import.
-
-    > Alternatively, you can use the [Kontent Backup Manager](https://github.com/Kentico/kontent-backup-manager-js) and import data to the newly created project from [`content.zip`](./content.zip) file via command line:
+1. Use the [Kontent Backup Manager](https://github.com/Kentico/kontent-backup-manager-js) and import data to the newly created project from [`content.zip`](./content.zip) file via command line:
     >
     >   ```sh
-    >    npm i -g @kentico/kontent-backup-manager
+    >    npm i -g @kentico/kontent-backup-manager@1.12.0
     >
     >    kbm --action=restore --projectId=<Project ID> --apiKey=<Management API key> --zipFilename=content
     >    ```
     >
-    > Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
+    > Go to your Kontent project and [publish all the imported items](https://kontent.ai/learn/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
 1. Map the codebase to the data source
     - adjust the `DeliveryOptions:ProjectId` key in `appSettings.json`
