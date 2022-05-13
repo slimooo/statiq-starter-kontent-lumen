@@ -3,6 +3,10 @@
     "Generator": {
       "commandName": "Project",
       "commandLineArgs": "--nocache"
+    },
+    "Preview": {
+      "commandName": "Project",
+      "commandLineArgs": "preview"
     }
   }
 }

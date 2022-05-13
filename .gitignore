@@ -45,3 +45,6 @@ npm-debug.log
 .eslintcache
 .gatsby-context.js
 gatsby-starter-lumen.iml
+
+# Statiq
+cache
