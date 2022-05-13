@@ -14,7 +14,7 @@
             @if (Model.TitleProvider != null)
             {
                 <h1 class="page__title" data-kontent-item-id="@Model.TitleProvider.System.Id" data-kontent-element-codename="@Model.TitleProvider.ElementCodename">
-                    @Model.TitleProvider.Title
+                    @Model.TitleProvider.Title!
                 </h1>
             }
             <div class="page__body">
