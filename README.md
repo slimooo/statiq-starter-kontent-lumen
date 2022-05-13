@@ -3,7 +3,7 @@
 [![Live demo](https://img.shields.io/badge/Live-Demo-00C7B7.svg?logo=netlify)](https://statiq-starter-kontent-lumen.netlify.app/)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b0ddaf97-1629-4d05-b8b0-c10e7241fc56/deploy-status)](https://app.netlify.com/sites/statiq-starter-kontent-lumen/deploys)
 
-# Kontent by Kentico 💖 Statiq - Lumen Starter
+# Kontent 💖 Statiq - Lumen Starter
 
 Lumen is a minimal, lightweight, and mobile-first starter for creating blogs using Statiq and Kontent by Kentico.
 
@@ -43,7 +43,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 
 🎊🎉 **You are now ready to explore the code base!**
 
-> By default, the content is loaded from a shared Kentico Kontent project. If you want to use your own clone of the project so that you can customize it and experiment with Kontent, continue to the next section.
+> By default, the content is loaded from a shared Kontent project. If you want to use your own clone of the project so that you can customize it and experiment with Kontent, continue to the next section.
 
 ### Create a content source
 
@@ -64,7 +64,7 @@ Lumen is a minimal, lightweight, and mobile-first starter for creating blogs usi
 1. Map the codebase to the data source
     - adjust the `DeliveryOptions:ProjectId` key in `appSettings.json`
 
-🚀 **You are now ready to use the site with your own Kentico Kontent project as data source!**
+🚀 **You are now ready to use the site with your own Kontent project as data source!**
 
 ### Production deployment
 #### Netlify
